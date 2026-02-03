@@ -1,0 +1,64 @@
+body {
+    background: linear-gradient(135deg, #f3f1ff, #eef2ff);
+    min-height: 100vh;
+}
+
+/* Navbar */
+.gradient-navbar {
+    background: linear-gradient(90deg, #5f6cff, #8b5cf6);
+}
+
+/* Sidebar */
+.sidebar {
+    background: rgba(255,255,255,0.7);
+    border-radius: 16px;
+    padding: 20px;
+}
+
+.sidebar .nav-link {
+    color: #555;
+    border-radius: 10px;
+}
+
+.sidebar .nav-item.active .nav-link {
+    background: linear-gradient(90deg, #6366f1, #8b5cf6);
+    color: white;
+}
+
+/* Company card */
+.company-card {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    color: white;
+    padding: 15px;
+    border-radius: 14px;
+}
+
+/* Buttons */
+.btn-gradient {
+    background: linear-gradient(90deg, #6366f1, #8b5cf6);
+    color: white;
+    border: none;
+}
+
+/* Candidate card */
+.candidate-card {
+    background: white;
+    border-radius: 14px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+
+.candidate-card img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+}
+
+.candidate-card.disabled {
+    opacity: 0.6;
+    pointer-events: none;
+}
