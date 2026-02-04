@@ -1,0 +1,15 @@
+{
+  "name": "matchflow",
+  "version": "1.0.0",
+  "description": "Plataforma de empleo tipo LinkedIn/Indeed",
+  "scripts": {
+    "server": "json-server --watch db.json --port 3000",
+    "start": "npx json-server --watch db.json --port 3000"
+  },
+  "keywords": ["empleo", "linkedin", "indeed"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "json-server": "^0.17.4"
+  }
+}

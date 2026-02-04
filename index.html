@@ -1,138 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>MatchFlow | Find Candidates</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MatchFlow - Conecta talento con oportunidades</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
-
-    <!-- Top Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark gradient-navbar px-4">
-        <span class="navbar-brand fw-bold">🚀 MatchFlow</span>
-        <div class="ms-auto d-flex align-items-center gap-3">
-            <span class="text-white"><img src="https://i.pravatar.cc/40" class="rounded-circle" alt="user">William Anderson</span><span><button class="btn btn-dark">Log out</button></span>
-        </div>
-    </nav>
-
-    <div class="container-fluid mt-4">
-        <div class="row">
-
-            <!-- Sidebar -->
-            <aside class="col-md-2 sidebar">
-                <div class="company-card">
-                    <h6 class="fw-bold mb-0">TechCorp</h6>
-                    <small>San Francisco, CA</small>
-                </div>
-
-                <ul class="nav flex-column mt-4 gap-2">
-                    <li class="nav-item"><a class="nav-link" href="#">Dashboard</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Manage Jobs</a></li>
-                    <li class="nav-item active"><a class="nav-link" href="#">Find Candidates</a></li>
-                </ul>
-            </aside>
-
-            <!-- Main Content -->
-            <main class="col-md-7">
-                <h3 class="fw-bold mb-4">Find Candidates</h3>
-
-                <!-- Filters -->
-                <div class="card p-3 mb-4">
-                    <div class="row g-3 align-items-center">
-                        <div class="col-md-3">
-                            <select class="form-select">
-                                <option>All Roles</option>
-                            </select>
-                        </div>
-                        <div class="col-md-3">
-                            <select class="form-select">
-                                <option>All Locations</option>
-                            </select>
-                        </div>
-                        <div class="col-md-3 d-flex align-items-center gap-2">
-                            <span>Open to Work</span>
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" checked>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <button class="btn btn-gradient w-100">
-                                <i class="bi bi-search"></i> Search
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Candidate Card -->
-                <div class="candidate-card">
-                    <img src="https://i.pravatar.cc/60?img=32" alt="">
-                    <div class="flex-grow-1">
-                        <h6 class="mb-0">Sarah Miller</h6>
-                        <small>Marketing Specialist · $75k/year</small>
-                    </div>
-                    <span class="badge bg-success">Open to Work</span>
-                </div>
-
-                <div class="candidate-card">
-                    <img src="https://i.pravatar.cc/60?img=12" alt="">
-                    <div class="flex-grow-1">
-                        <h6 class="mb-0">David Nguyen</h6>
-                        <small>Full Stack Developer · $95k/year</small>
-                    </div>
-                    <button class="btn btn-outline-primary btn-sm">Reserve</button>
-                </div>
-
-                <div class="candidate-card">
-                    <img src="https://i.pravatar.cc/60?img=15" alt="">
-                    <div class="flex-grow-1">
-                        <h6 class="mb-0">Michael Clark</h6>
-                        <small>Data Analyst · $85k/year</small>
-                    </div>
-                    <button class="btn btn-gradient btn-sm">Match</button>
-                </div>
-
-                <div class="candidate-card disabled">
-                    <img src="https://i.pravatar.cc/60?img=20" alt="">
-                    <div class="flex-grow-1">
-                        <h6 class="mb-0">Jessica Lee</h6>
-                        <small>Frontend Developer · $90k/year</small>
-                    </div>
-                    <span class="badge bg-secondary">Reserved</span>
-                </div>
-            </main>
-
-            <!-- Match Panel -->
-            
-            <aside class="col-md-3">
-                <div class="card p-3">
-                    <h5 class="fw-bold">Match Details</h5>
-
-                    <p class="mb-1"><strong>Offer:</strong> UI/UX Designer</p>
-                    <p class="mb-1"><strong>Status:</strong> <span class="badge bg-warning">Pending</span></p>
-                    <p class="mb-3"><strong>Candidate:</strong> Alex Johnson</p>
-
-                    <div class="d-grid gap-2">
-                        <button class="btn btn-primary">Contact</button>
-                        <button class="btn btn-success">Mark as Hired</button>
-                        <button class="btn btn-danger">Discard</button>
-                    </div>
-                </div>
-            </aside>
-
-        </div>
+  <nav class="navbar">
+    <a href="index.html" class="logo">MatchFlow</a>
+    <div class="nav-links">
+      <a href="login.html">Iniciar sesión</a>
+      <a href="register.html" class="btn btn-primary" style="width: auto; margin: 0;">Registrarse</a>
     </div>
+  </nav>
 
+  <main class="landing-page">
+    <section class="landing-hero">
+      <h1>Encuentra tu próximo empleo o tu mejor candidato</h1>
+      <p class="landing-tagline">MatchFlow une talento con empresas. Sin intermediarios, sin complicaciones. La plataforma donde las conexiones laborales fluyen.</p>
+      <div class="landing-cta">
+        <a href="register.html" class="btn btn-primary" style="width: auto;">Únete gratis</a>
+        <a href="login.html" class="btn btn-secondary">Ya tengo cuenta</a>
+      </div>
+    </section>
+
+    <section class="landing-description card">
+      <h2>¿Por qué MatchFlow?</h2>
+      <p>Somos la plataforma que reinventa la búsqueda de empleo. Ya seas candidato buscando tu oportunidad ideal o empresa en busca de talento, MatchFlow te conecta con las personas y oportunidades adecuadas mediante matches inteligentes, solicitudes directas y la posibilidad de reservar candidatos. Todo en un solo lugar, diseñado para que tu próxima gran conexión sea más sencilla que nunca.</p>
+    </section>
+
+    <section class="landing-features">
+      <div class="landing-feature-card card">
+        <span class="feature-icon">👤</span>
+        <h3>Para candidatos</h3>
+        <p>Explora ofertas de múltiples empresas, aplica con un clic y haz seguimiento del estado de tus solicitudes. Recibe matches y reservas de empresas interesadas en tu perfil.</p>
+      </div>
+      <div class="landing-feature-card card">
+        <span class="feature-icon">🏢</span>
+        <h3>Para empresas</h3>
+        <p>Publica tus vacantes, recibe solicitudes de candidatos cualificados y toma el control: acepta, declina o haz match con el talento que necesitas. Reserva candidatos para tus procesos.</p>
+      </div>
+      <div class="landing-feature-card card">
+        <span class="feature-icon">✨</span>
+        <h3>Todo en un solo lugar</h3>
+        <p>Matches, solicitudes, reservas y edición de perfil. Una experiencia fluida y profesional, sin perderte en procesos infinitos.</p>
+      </div>
+    </section>
+
+    <section class="landing-final card">
+      <h2>Empieza hoy. Es gratis.</h2>
+      <p>Miles de profesionales y empresas ya confían en MatchFlow para conectar. Regístrate en menos de 2 minutos y accede a oportunidades reales.</p>
+      <a href="register.html" class="btn btn-primary" style="width: auto;">Crear cuenta gratuita</a>
+    </section>
+  </main>
+
+  <script src="js/guard.js"></script>
+  <script>
+    // Si ya está logueado, redirigir al dashboard
+    if (Guard.isAuthenticated()) {
+      window.location.href = 'dashboard.html';
+    }
+  </script>
 </body>
-
 </html>

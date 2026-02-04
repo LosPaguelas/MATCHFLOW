@@ -1,161 +1,81 @@
-<!-- Login page -->
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MatchFlow Login</title>
-    <link rel="stylesheet" href="./css/login.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar sesión - MatchFlow</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="main-container">
-    <section class="info-card">
-        <div class="brand">
-            <span class="logo-icon">✨</span>
-            <span class="brand-name">MatchFlow</span>
-        </div>
-        
-        <h1>Welcome Back!</h1>
-        <p class="description">Connect talent with opportunity. Sign in to continue your journey.</p>
-        
-        <ul class="features-list">
-            <li>
-                <div class="icon-bg target">🎯</div>
-                <div>
-                    <strong>Smart Matching</strong>
-                    <p>AI-powered connections between candidates and companies</p>
-                </div>
-            </li>
-            <li>
-                <div class="icon-bg bolt">⚡️</div>
-                <div>
-                    <strong>Real-time Updates</strong>
-                    <p>Instant notifications for matches and opportunities</p>
-                </div>
-            </li>
-            <li>
-                <div class="icon-bg lock">🔒</div>
-                <div>
-                    <strong>Secure & Private</strong>
-                    <p>Your data is protected with enterprise-grade security</p>
-                </div>
-            </li>
-        </ul>
-
-        <div class="testimonial">
-            <hr>
-            <p>"MatchFlow helped us find the perfect candidates in half the time. Highly recommended!"</p>
-            <div class="ceo-info">
-                <img src="https://via.placeholder.com/40" alt="CEO" class="avatar">
-                <div class="ceo-text">
-                    <span class="name">John Smith</span>
-                    <span class="role">CEO, TechCorp</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="auth-card">
-    
-    <div id="role-selection" class="auth-section">
-        <h2>Sign In</h2>
-        <p class="subtitle">Enter your credentials to access your account</p>
-        <p class="label-text">I am a:</p>
-
-        <div class="role-option clickable">
-            <div class="icon-box blue">👤</div>
-            <div class="role-details">
-                <h4>Candidate</h4>
-                <p>Looking for job opportunities</p>
-            </div>
-            <span class="arrow">➔</span>
-        </div>
-
-        <div class="role-option clickable">
-            <div class="icon-box purple">💼</div>
-            <div class="role-details">
-                <h4>Company</h4>
-                <p>Hiring talented professionals</p>
-            </div>
-            <span class="arrow">➔</span>
-        </div>
+  <nav class="navbar">
+    <a href="index.html" class="logo">MatchFlow</a>
+    <div class="nav-links">
+      <a href="index.html">Inicio</a>
+      <a href="register.html">Registrarse</a>
     </div>
+  </nav>
 
-    <div id="login-form" class="auth-section d-none">
-        <h2>Sign In</h2>
-        <p class="subtitle">Enter your credentials to access your account</p>
-        
-        <div class="active-role-badge">
-            <span id="selected-role-icon">👤</span>
-            <span id="selected-role-text">Candidate Login</span>
-            <a href="#" class="btn-change">Change</a>
+  <main class="auth-container">
+    <div class="auth-card">
+      <h1>Iniciar sesión</h1>
+      <p class="subtitle">Accede a tu cuenta MatchFlow</p>
+
+      <div id="alert" class="alert alert-error" style="display: none;"></div>
+
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" name="email" required placeholder="tu@email.com">
         </div>
+        <div class="form-group">
+          <label for="password">Contraseña</label>
+          <input type="password" id="password" name="password" required placeholder="••••••••">
+        </div>
+        <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+      </form>
 
-        <form>
-            <div class="input-group">
-                <label>Email Address</label>
-                <input type="email" placeholder="your@email.com">
-            </div>
-            <div class="input-group">
-                <label>Password</label>
-                <div class="password-wrapper">
-                    <input type="password" placeholder="Enter your password">
-                    <span class="toggle-eye">👁</span>
-                </div>
-            </div>
-            <button type="submit" class="btn-signin">Sign In ➔</button>
-        </form>
+      <div class="auth-footer">
+        ¿No tienes cuenta? <a href="register.html">Regístrate gratis</a>
+      </div>
     </div>
+  </main>
 
-</section>
+  <script src="js/api.js"></script>
+  <script src="js/guard.js"></script>
+  <script>
+    if (Guard.isAuthenticated()) {
+      window.location.href = 'dashboard.html';
+    }
 
-    <section class="auth-card">
-        <h2>Sign In</h2>
-        <p class="subtitle">Enter your credentials to access your account</p>
-        
-        <div class="role-badge">
-            <span class="role-icon">👤</span>
-            <span>Candidate Login</span>
-            <a href="#" class="change-link">Change</a>
-        </div>
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const alertEl = document.getElementById('alert');
+      alertEl.style.display = 'none';
 
-        <form>
-            <div class="input-group">
-                <label>Email Address</label>
-                <div class="input-wrapper">
-                    <i class="icon-mail">📧</i>
-                    <input type="email" placeholder="your@email.com">
-                </div>
-            </div>
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
 
-            <div class="input-group">
-                <label>Password</label>
-                <div class="input-wrapper">
-                    <i class="icon-lock">🔒</i>
-                    <input type="password" placeholder="Enter your password">
-                    <i class="toggle-pass">👁</i>
-                </div>
-            </div>
+      try {
+        const users = await api.get('users');
+        const user = users.find(u => u.email === email && u.password === password);
 
-            <div class="form-options">
-                <label><input type="checkbox"> Remember me</label>
-                <a href="#">Forgot password?</a>
-            </div>
-
-            <button type="submit" class="btn-primary" id="btn-auth">Sign In ➔</button>
-
-            <div class="divider"><span>Or continue with</span></div>
-
-            <div class="social-login">
-                <button type="button" class="btn-social"><img src="google-icon.png"> Google</button>
-                <button type="button" class="btn-social"><img src="fb-icon.png"> Facebook</button>
-            </div>
-
-            <p class="footer-link">Don't have an account? <a href="#">Sign up for free</a></p>
-        </form>
-    </section>
-    <script src="./js/login.js"></script>
-</div>
+        if (user) {
+          Guard.setSession(user);
+          window.location.href = 'dashboard.html';
+        } else {
+          alertEl.textContent = 'Email o contraseña incorrectos.';
+          alertEl.classList.remove('alert-success');
+          alertEl.classList.add('alert-error');
+          alertEl.style.display = 'block';
+        }
+      } catch (err) {
+        alertEl.textContent = 'Error de conexión. ¿Está el servidor json-server ejecutándose? (npm run server)';
+        alertEl.classList.remove('alert-success');
+        alertEl.classList.add('alert-error');
+        alertEl.style.display = 'block';
+        console.error(err);
+      }
+    });
+  </script>
 </body>
 </html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registrarse - MatchFlow</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <a href="index.html" class="logo">MatchFlow</a>
+    <div class="nav-links">
+      <a href="index.html">Inicio</a>
+      <a href="login.html">Iniciar sesión</a>
+    </div>
+  </nav>
+
+  <main class="auth-container">
+    <div class="auth-card">
+      <h1>Crear cuenta</h1>
+      <p class="subtitle">Únete a MatchFlow y conecta con oportunidades</p>
+
+      <div id="alert" class="alert alert-error" style="display: none;"></div>
+
+      <form id="registerForm">
+        <div class="form-group">
+          <label for="type">Tipo de cuenta</label>
+          <select id="type" name="type" required>
+            <option value="">Selecciona...</option>
+            <option value="candidate">Soy candidato - Busco empleo</option>
+            <option value="company">Soy empresa - Busco talento</option>
+          </select>
+        </div>
+
+        <div id="candidateFields" style="display: none;">
+          <div class="form-group">
+            <label for="name">Nombre completo</label>
+            <input type="text" id="name" name="name" placeholder="Tu nombre">
+          </div>
+          <div class="form-group">
+            <label for="title">Título profesional</label>
+            <input type="text" id="title" name="title" placeholder="ej: Desarrollador Full Stack">
+          </div>
+          <div class="form-group">
+            <label for="skills">Habilidades (separadas por coma)</label>
+            <input type="text" id="skills" name="skills" placeholder="JavaScript, React, Node.js">
+          </div>
+          <div class="form-group">
+            <label for="experience">Experiencia</label>
+            <input type="text" id="experience" name="experience" placeholder="ej: 3 años">
+          </div>
+        </div>
+
+        <div id="companyFields" style="display: none;">
+          <div class="form-group">
+            <label for="companyName">Nombre de la empresa</label>
+            <input type="text" id="companyName" name="companyName" placeholder="Nombre de tu empresa">
+          </div>
+          <div class="form-group">
+            <label for="industry">Sector</label>
+            <input type="text" id="industry" name="industry" placeholder="ej: Tecnología">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="location">Ubicación</label>
+          <input type="text" id="location" name="location" placeholder="ej: Madrid">
+        </div>
+
+        <div class="form-group">
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" name="email" required placeholder="tu@email.com">
+        </div>
+        <div class="form-group">
+          <label for="password">Contraseña</label>
+          <input type="password" id="password" name="password" required minlength="6" placeholder="Mínimo 6 caracteres">
+        </div>
+        <button type="submit" class="btn btn-primary">Crear cuenta</button>
+      </form>
+
+      <div class="auth-footer">
+        ¿Ya tienes cuenta? <a href="login.html">Inicia sesión</a>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/guard.js"></script>
+  <script>
+    if (Guard.isAuthenticated()) {
+      window.location.href = 'dashboard.html';
+    }
+
+    const typeSelect = document.getElementById('type');
+    const candidateFields = document.getElementById('candidateFields');
+    const companyFields = document.getElementById('companyFields');
+
+    typeSelect.addEventListener('change', () => {
+      const val = typeSelect.value;
+      candidateFields.style.display = val === 'candidate' ? 'block' : 'none';
+      companyFields.style.display = val === 'company' ? 'block' : 'none';
+    });
+
+    document.getElementById('registerForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const alertEl = document.getElementById('alert');
+      alertEl.style.display = 'none';
+
+      const type = document.getElementById('type').value;
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+      const location = document.getElementById('location').value.trim() || 'No especificada';
+
+      let userData = { email, password, location };
+
+      if (type === 'candidate') {
+        userData = {
+          ...userData,
+          name: document.getElementById('name').value.trim() || email.split('@')[0],
+          type: 'candidate',
+          title: document.getElementById('title').value.trim() || 'Candidato',
+          skills: (document.getElementById('skills').value || '').split(',').map(s => s.trim()).filter(Boolean) || [],
+          experience: document.getElementById('experience').value.trim() || 'Sin especificar',
+          avatar: null,
+        };
+      } else {
+        userData = {
+          ...userData,
+          name: document.getElementById('companyName').value.trim() || 'Mi Empresa',
+          type: 'company',
+          industry: document.getElementById('industry').value.trim() || 'General',
+          avatar: null,
+        };
+      }
+
+      try {
+        const users = await api.get('users');
+        if (users.some(u => u.email === email)) {
+          alertEl.textContent = 'Ya existe una cuenta con ese email.';
+          alertEl.classList.add('alert-error');
+          alertEl.style.display = 'block';
+          return;
+        }
+
+        await api.post('users', userData);
+        const newUsers = await api.get('users');
+        const newUser = newUsers.find(u => u.email === email);
+        Guard.setSession(newUser);
+        window.location.href = 'dashboard.html';
+      } catch (err) {
+        alertEl.textContent = 'Error al registrar. ¿Está el servidor ejecutándose?';
+        alertEl.classList.add('alert-error');
+        alertEl.style.display = 'block';
+        console.error(err);
+      }
+    });
+  </script>
+</body>
+</html>

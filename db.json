@@ -1,0 +1,89 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "candidato@matchflow.com",
+      "password": "candidato123",
+      "name": "Carlos García",
+      "type": "candidate",
+      "title": "Desarrollador Full Stack",
+      "skills": [
+        "JavaScript",
+        "React",
+        "Node.js"
+      ],
+      "experience": "3 años",
+      "location": "Madrid",
+      "avatar": null
+    },
+    {
+      "id": 2,
+      "email": "empresa@matchflow.com",
+      "password": "empresa123",
+      "name": "TurtleCorp S.A.S",
+      "type": "company",
+      "industry": "Tecnología",
+      "location": "Barcelona",
+      "avatar": null
+    }
+  ],
+  "jobs": [
+    {
+      "id": 1,
+      "companyId": 2,
+      "companyName": "TurtleCorp S.A.S",
+      "title": "Desarrollador React Senior",
+      "description": "Buscamos un desarrollador React con experiencia en aplicaciones escalables. Conocimientos de TypeScript y testing.",
+      "location": "Barcelona (Híbrido)",
+      "type": "Tiempo completo",
+      "salary": "45.000 - 55.000 €",
+      "skills": [
+        "React",
+        "TypeScript",
+        "JavaScript"
+      ],
+      "postedAt": "2025-02-01T10:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "companyId": 2,
+      "companyName": "TurtleCorp S.A.S",
+      "title": "Diseñador UX/UI",
+      "description": "Incorporamos diseñador para nuestro equipo de producto. Experiencia con Figma y diseño de sistemas.",
+      "location": "Remoto",
+      "type": "Tiempo completo",
+      "salary": "35.000 - 42.000 €",
+      "skills": [
+        "Figma",
+        "UX",
+        "UI Design"
+      ],
+      "postedAt": "2025-02-02T09:00:00.000Z"
+    }
+  ],
+  "matches": [
+    {
+      "companyId": 2,
+      "candidateId": 1,
+      "createdAt": "2026-02-04T05:24:02.040Z",
+      "id": 1
+    }
+  ],
+  "reservations": [
+    {
+      "companyId": 2,
+      "candidateId": 1,
+      "createdAt": "2026-02-04T05:24:00.160Z",
+      "id": 1
+    }
+  ],
+  "applications": [
+    {
+      "jobId": 2,
+      "candidateId": 1,
+      "status": "accepted",
+      "createdAt": "2026-02-04T05:21:42.252Z",
+      "id": 1
+    }
+  ]
+}

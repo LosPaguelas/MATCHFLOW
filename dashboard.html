@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - MatchFlow</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <a href="dashboard.html" class="logo">MatchFlow</a>
+    <div class="nav-links">
+      <span id="userName" style="color: var(--text-secondary);"></span>
+      <a href="#" id="logoutBtn">Cerrar sesión</a>
+    </div>
+  </nav>
+
+  <div class="dashboard">
+    <!-- Sidebar -->
+    <aside class="sidebar-card">
+      <div class="card">
+        <div class="profile-summary">
+          <div id="profileAvatar" class="profile-avatar">U</div>
+          <h3 id="profileName">Usuario</h3>
+          <p id="profileTitle" style="color: var(--text-secondary); font-size: 0.9rem;"></p>
+          <button type="button" class="btn btn-secondary" id="editProfileBtn" style="width: 100%; margin-top: 12px;">Editar perfil</button>
+        </div>
+      </div>
+
+      <!-- Solo candidatos: Mis solicitudes -->
+      <div id="candidateApplicationsCard" class="card" style="display: none;">
+        <h3 class="card-title">Mis solicitudes</h3>
+        <div id="candidateApplicationsList"></div>
+      </div>
+
+      <!-- Solo candidatos: Mis matches -->
+      <div id="candidateMatchesCard" class="card" style="display: none;">
+        <h3 class="card-title">Empresas que me hicieron match</h3>
+        <div id="candidateMatchesList"></div>
+      </div>
+
+      <!-- Solo empresas: Estadísticas -->
+      <div id="companyStatsCard" class="card" style="display: none;">
+        <h3 class="card-title">Mis ofertas</h3>
+        <p id="jobCount">0 ofertas publicadas</p>
+      </div>
+    </aside>
+
+    <!-- Contenido principal -->
+    <main>
+      <!-- Vista Candidato: Ofertas -->
+      <div id="candidateView" style="display: none;">
+        <div class="card">
+          <h2 class="card-title">Ofertas de empleo</h2>
+          <p style="color: var(--text-secondary); margin-bottom: 16px;">Explora las ofertas publicadas por las empresas</p>
+          <div id="jobsList"></div>
+        </div>
+      </div>
+
+      <!-- Vista Empresa: Publicar ofertas + Candidatos -->
+      <div id="companyView" style="display: none;">
+        <div class="card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+            <h2 class="card-title" style="margin: 0;">Mis ofertas</h2>
+            <button class="btn btn-primary" id="newJobBtn" style="width: auto;">+ Nueva oferta</button>
+          </div>
+          <div id="myJobsList"></div>
+        </div>
+
+        <!-- Solicitudes a mis ofertas -->
+        <div class="card" id="applicationsToMyJobsCard">
+          <h2 class="card-title">Solicitudes a mis ofertas</h2>
+          <p style="color: var(--text-secondary); margin-bottom: 16px;">Candidatos que aplicaron a tus vacantes. Acepta o declina.</p>
+          <div id="applicationsToMyJobsList"></div>
+        </div>
+
+        <div class="card">
+          <h2 class="card-title">Candidatos - Hacer match o reservar</h2>
+          <p style="color: var(--text-secondary); margin-bottom: 16px;">Encuentra candidatos y haz match o resérvalos para tus vacantes</p>
+          <div id="candidatesList"></div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Columna derecha: Notificaciones / Reservaciones -->
+    <aside>
+      <div id="candidateReservations" class="card sidebar-card" style="display: none;">
+        <h3 class="card-title">Empresas que me reservaron</h3>
+        <div id="candidateReservationsList"></div>
+      </div>
+
+      <div id="companyMatchesCard" class="card sidebar-card" style="display: none;">
+        <h3 class="card-title">Mis matches</h3>
+        <div id="companyMatchesList"></div>
+      </div>
+
+      <div id="companyReservationsCard" class="card sidebar-card" style="display: none;">
+        <h3 class="card-title">Candidatos reservados</h3>
+        <div id="companyReservationsList"></div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Modal Nueva Oferta -->
+  <div id="jobModal" class="modal-overlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h2>Nueva oferta de empleo</h2>
+        <button class="modal-close" id="closeJobModal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="jobForm">
+          <div class="form-group">
+            <label>Título del puesto</label>
+            <input type="text" id="jobTitle" required placeholder="ej: Desarrollador React Senior">
+          </div>
+          <div class="form-group">
+            <label>Descripción</label>
+            <textarea id="jobDescription" rows="4" required placeholder="Describe el puesto..."></textarea>
+          </div>
+          <div class="form-group">
+            <label>Ubicación</label>
+            <input type="text" id="jobLocation" placeholder="ej: Madrid (Híbrido)">
+          </div>
+          <div class="form-group">
+            <label>Tipo de contrato</label>
+            <input type="text" id="jobType" placeholder="ej: Tiempo completo">
+          </div>
+          <div class="form-group">
+            <label>Salario</label>
+            <input type="text" id="jobSalary" placeholder="ej: 40.000 - 50.000 €">
+          </div>
+          <div class="form-group">
+            <label>Habilidades requeridas (separadas por coma)</label>
+            <input type="text" id="jobSkills" placeholder="React, JavaScript, TypeScript">
+          </div>
+          <button type="submit" class="btn btn-primary">Publicar oferta</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Ver oferta (candidato) -->
+  <div id="jobDetailModal" class="modal-overlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 id="jobDetailTitle">Oferta</h2>
+        <button class="modal-close" id="closeJobDetail">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p id="jobDetailCompany" class="job-company"></p>
+        <p id="jobDetailLocation" class="job-meta"></p>
+        <p id="jobDetailDescription" style="margin: 16px 0;"></p>
+        <p id="jobDetailSalary" style="font-weight: 600; margin-bottom: 8px;"></p>
+        <div id="jobDetailSkills" class="job-skills"></div>
+        <div id="jobDetailApplySection" style="margin-top: 20px;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Editar perfil -->
+  <div id="profileModal" class="modal-overlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h2>Editar perfil</h2>
+        <button class="modal-close" id="closeProfileModal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="profileForm">
+          <div id="profileFormCandidate" style="display: none;">
+            <div class="form-group">
+              <label>Nombre completo</label>
+              <input type="text" id="profileNameInput">
+            </div>
+            <div class="form-group">
+              <label>Título profesional</label>
+              <input type="text" id="profileTitleInput" placeholder="ej: Desarrollador Full Stack">
+            </div>
+            <div class="form-group">
+              <label>Habilidades (separadas por coma)</label>
+              <input type="text" id="profileSkillsInput" placeholder="JavaScript, React, Node.js">
+            </div>
+            <div class="form-group">
+              <label>Experiencia</label>
+              <input type="text" id="profileExperienceInput" placeholder="ej: 3 años">
+            </div>
+            <div class="form-group">
+              <label>Ubicación</label>
+              <input type="text" id="profileLocationInput" placeholder="ej: Madrid">
+            </div>
+          </div>
+          <div id="profileFormCompany" style="display: none;">
+            <div class="form-group">
+              <label>Nombre de la empresa</label>
+              <input type="text" id="profileCompanyNameInput">
+            </div>
+            <div class="form-group">
+              <label>Sector</label>
+              <input type="text" id="profileIndustryInput" placeholder="ej: Tecnología">
+            </div>
+            <div class="form-group">
+              <label>Ubicación</label>
+              <input type="text" id="profileCompanyLocationInput" placeholder="ej: Barcelona">
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Guardar cambios</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/guard.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
