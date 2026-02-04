@@ -1,7 +1,7 @@
 /**
  * API MatchFlow - Configuración para json-server
  */
-const API_URL = 'http://localhost:3000';
+const API_URL = 'http://localhost:3001';
 
 const api = {
   async get(resource) {

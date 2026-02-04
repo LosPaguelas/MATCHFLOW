@@ -141,18 +141,38 @@ async function loadJobs() {
       </div>
     `).join('');
 
-    container.querySelectorAll('.job-card').forEach((card) => {
-      card.addEventListener('click', () => showJobDetail(jobs.find((j) => j.id === parseInt(card.dataset.jobId))));
-    });
+container.querySelectorAll('.job-card').forEach((card) => {
+  card.addEventListener('click', () => {
+    // Obtenemos el ID del atributo data-job-id
+    const jobIdFromCard = card.dataset.jobId;
+    
+    // IMPORTANTE: Usamos '==' (dos iguales) para que ignore si uno es
+    // string "1" y el otro es número 1. 
+    const selectedJob = jobs.find((j) => j.id == jobIdFromCard);
+    
+    if (selectedJob) {
+      showJobDetail(selectedJob);
+    } else {
+      console.error("No se encontró el trabajo. ID en tarjeta:", jobIdFromCard);
+      console.log("IDs disponibles en el array 'jobs':", jobs.map(j => j.id));
+    }
+  });
+});
   } catch (err) {
     console.error(err);
     document.getElementById('jobsList').innerHTML = '<div class="alert alert-error">Error al cargar ofertas. ¿Servidor activo?</div>';
   }
 }
 
+
 let currentJobDetail = null;
 
 async function showJobDetail(job) {
+  if (!job) {
+    console.error("Se intentó abrir el detalle pero el objeto 'job' es null o undefined");
+    return; // Sale de la función y evita el error de 'title'
+  }
+
   currentJobDetail = job;
   document.getElementById('jobDetailTitle').textContent = job.title;
   document.getElementById('jobDetailCompany').textContent = job.companyName;
@@ -181,7 +201,7 @@ async function showJobDetail(job) {
   }
 
   document.getElementById('jobDetailModal').classList.add('active');
-}
+} 
 
 async function applyToJob(jobId) {
   try {
