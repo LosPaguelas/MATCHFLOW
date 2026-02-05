@@ -54,7 +54,7 @@ Core concept: Company plan controls what candidates they can see and how they ca
 (experience filter)
 - Can see all candidates, including reserved ones
 - Full filtering freedom (skills, attributes, custom filters)
-- Still cannot reserve if candidate reached reservation limit
+- Still cannot reserve if candidate reached reservation     
 - Cross-Plan Global Business Rules (Hard System Constraints)
 
 - These rules override all plans:

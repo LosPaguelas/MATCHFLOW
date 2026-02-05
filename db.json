@@ -90,6 +90,20 @@
         "asdasd"
       ],
       "postedAt": "2026-02-04T19:21:06.835Z"
+    },
+    {
+      "id": "7ad2",
+      "companyId": "2",
+      "companyName": "TurtleCorp S.A.S",
+      "title": "diseñadora",
+      "description": "crear sitio web modernos",
+      "location": "medellin",
+      "type": "medio tiempo",
+      "salary": "12000",
+      "skills": [
+        "figma"
+      ],
+      "postedAt": "2026-02-05T22:02:17.824Z"
     }
   ],
   "matches": [
@@ -129,6 +143,13 @@
       "candidateId": "1",
       "status": "pending",
       "createdAt": "2026-02-04T19:36:45.233Z"
+    },
+    {
+      "id": "0a05",
+      "jobId": "7ad2",
+      "candidateId": "1",
+      "status": "pending",
+      "createdAt": "2026-02-05T22:03:23.227Z"
     }
   ]
 }
