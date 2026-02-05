@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Plataforma de empleo tipo LinkedIn/Indeed",
   "scripts": {
-    "server": "json-server --watch db.json --port 3000",
-    "start": "npx json-server --watch db.json --port 3000"
+    "server": "json-server --watch db.json --port 3001",
+    "start": "npx json-server --watch db.json --port 3001"
   },
   "keywords": [
     "empleo",

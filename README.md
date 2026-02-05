@@ -18,11 +18,13 @@ Plataforma de empleo estilo LinkedIn/Indeed. Conecta candidatos con empresas y p
 ## Instalación y ejecución
 
 1. Instalar dependencias:
+
    ```bash
    npm install
    ```
 
 2. Iniciar el servidor (json-server con db.json):
+
    ```bash
    npm run server
    ```
@@ -33,10 +35,10 @@ Plataforma de empleo estilo LinkedIn/Indeed. Conecta candidatos con empresas y p
 
 ## Cuentas de prueba
 
-| Tipo      | Email                    | Contraseña  |
-|----------|---------------------------|-------------|
-| Candidato| candidato@matchflow.com   | candidato123|
-| Empresa  | empresa@matchflow.com     | empresa123  |
+| Tipo      | Email                   | Contraseña   |
+| --------- | ----------------------- | ------------ |
+| Candidato | candidato@matchflow.com | candidato123 |
+| Empresa   | empresa@matchflow.com   | empresa123   |
 
 ## Estructura
 
