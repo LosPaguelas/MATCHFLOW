@@ -1,3 +1,44 @@
+#paymentModalDashboard.modal {
+  overflow: visible; /* allow content to extend without inner scroll */
+}
+
+#paymentModalDashboard .modal-dialog {
+  max-height: none;
+}
+
+/* Force vertical centering for the dashboard payment modal in case Bootstrap centering is overridden */
+#paymentModalDashboard .modal-dialog {
+  display: flex;
+  align-items: center;
+  min-height: calc(100vh - 2rem);
+}
+
+#paymentModalDashboard .modal-content {
+  max-height: none;
+  overflow: visible;
+}
+
+#paymentModalDashboard .modal-body {
+  overflow: visible;
+  padding: 16px;
+}
+
+/* On very small screens allow scrolling so content remains accessible */
+@media (max-width: 480px) {
+  #paymentModalDashboard .modal-content {
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+}
+
+/* simple backdrop used by the plain JS modal show/hide */
+.simple-backdrop{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 1050;
+}
+
 /* MatchFlow - Tema empleo profesional (LinkedIn/Indeed style) */
 :root {
   --primary: #0a66c2;
@@ -293,6 +334,11 @@ body {
   text-decoration: underline;
 }
 
+/* modal */
+
+
+
+
 /* Dashboard layout */
 .dashboard {
   display: grid;
@@ -468,7 +514,8 @@ body {
   pointer-events: auto;
 }
 
-.modal {
+/* Scope custom (non-Bootstrap) modal styles to avoid colliding with Bootstrap's .modal */
+.modal-overlay .custom-modal {
   background: var(--bg-card);
   border-radius: 8px;
   max-width: 500px;
@@ -477,7 +524,7 @@ body {
   overflow-y: auto;
 }
 
-.modal-header {
+.modal-overlay .custom-modal .modal-header {
   padding: 20px 24px;
   border-bottom: 1px solid var(--border);
   display: flex;
@@ -485,11 +532,11 @@ body {
   align-items: center;
 }
 
-.modal-header h2 {
+.modal-overlay .custom-modal .modal-header h2 {
   font-size: 1.25rem;
 }
 
-.modal-close {
+.modal-overlay .custom-modal .modal-close {
   background: none;
   border: none;
   font-size: 1.5rem;
@@ -497,9 +544,48 @@ body {
   color: var(--text-secondary);
 }
 
-.modal-body {
+.modal-overlay .custom-modal .modal-body {
   padding: 24px;
 }
+
+/* Styles for dashboard payment modal images and options (scoped) */
+#paymentModalDashboard .payment-box{
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+#paymentModalDashboard .method{
+  border:1px solid #e9e9e9;
+  border-radius:8px;
+  padding:10px;
+  text-align:center;
+  cursor:pointer;
+  transition: border-color .15s, box-shadow .15s, transform .08s;
+}
+
+#paymentModalDashboard .method:hover{
+  border-color: #f06c8e;
+  transform: translateY(-2px);
+}
+
+#paymentModalDashboard .method input{ display: none; }
+
+#paymentModalDashboard .method img{
+  height: 40px;
+  object-fit: contain;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Visual indicator when a method is selected */
+#paymentModalDashboard .method input:checked + img,
+#paymentModalDashboard .method input:checked + img + span{
+  box-shadow: 0 0 0 4px rgba(10,102,194,0.12);
+  border-radius:6px;
+}
+
 
 /* Alerts */
 .alert {
@@ -559,3 +645,6 @@ body {
   background: #fde8e8;
   color: #c5221f;
 }
+
+ 
+

@@ -112,6 +112,12 @@
       "candidateId": 1,
       "createdAt": "2026-02-04T05:24:02.040Z",
       "id": "1"
+    },
+    {
+      "id": "649f",
+      "companyId": "2",
+      "candidateId": 1,
+      "createdAt": "2026-02-06T15:39:33.776Z"
     }
   ],
   "reservations": [
@@ -120,6 +126,12 @@
       "candidateId": 1,
       "createdAt": "2026-02-04T05:24:00.160Z",
       "id": "1"
+    },
+    {
+      "id": "0da2",
+      "companyId": "2",
+      "candidateId": 1,
+      "createdAt": "2026-02-06T15:39:35.462Z"
     }
   ],
   "applications": [

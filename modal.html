@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style_modal.css">
+</head>
+
+<body class="p-5">
+
+    <div class="mx-5">
+        <button class="plan btn btn-primary" data-plan="platino" data-price="100">
+            Comprar Plata
+        </button>
+
+        <button class="plan btn btn-primary" data-plan="golden" data-price="250">
+            Comprar Golden
+        </button>
+
+    </div>
+
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#paymentModal">
+        Abrir
+    </button>
+
+    <div class="modal fade" id="paymentModal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0">
+
+                <div class="payment-header">
+                    MACTHFLOW
+                </div>
+                <div class="modal-body">
+                    <div class="payment-box">
+                        <div class="row text-center mb-2 g-2">
+
+                            <div class="col">
+                                <label class="method w-100">
+                                    <input name="option" type="radio" value="bancolombia">
+                                    <img src="./img/Aprende sobre finanzas personales con Bancolombia.jpg">
+                                </label>
+                            </div>
+
+                            <div class="col">
+                                <label class="method w-100">
+                                    <input name="option" type="radio" value="daviplata">
+                                    <img src="./img/Pago Daviplata!!.jpg">
+                                </label>
+                            </div>
+                            <div class="col">
+                                <label class="method w-100">
+                                    <input name="option" type="radio" value="nequi">
+                                    <img src="./img/descarga.jpg">
+                                </label>
+                            </div>
+                        </div>
+                        <form id="form">
+                            <div class="mb-2">
+                                <label class="form-label">PAYMENT METHOD</label>
+                                <input type="text" class="form-control" id="payment-method" required>
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label">CARD NUMBER</label>
+                                <input type="number" id="card-number" class="form-control" required>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <label class="form-label">EXP DATE</label>
+                                    <input type="date" class="form-control" id="exp-date" required>
+                                </div>
+                                <div class="col">
+                                    <label class="form-label">CVC</label>
+                                    <input type="number" class="form-control" id="cvc" required>
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col">
+                                    <label class="form-label">AMOUNT</label>
+                                    <input type="number" class="form-control" id="amount" placeholder="dollar" required>
+                                </div>
+                            </div>
+                            <div class="d-grid mt-3">
+                                <button class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="payment_method.js"></script>
+</body>
+
+</html>
