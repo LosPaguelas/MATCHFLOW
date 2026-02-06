@@ -631,7 +631,7 @@ window.matchCandidate = async function (candidateId) {
 //       ` : ''
 //     }).filter(Boolean).join('');
 //   } catch (err) {
-//     console.error(err);
+//     console.error(err)
 //   }
 // }
 

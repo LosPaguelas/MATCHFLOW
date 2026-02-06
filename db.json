@@ -54,6 +54,51 @@
       "type": "company",
       "industry": "11111",
       "avatar": null
+    },
+    {
+      "id": "a1ef",
+      "email": "cesar@mail.com",
+      "password": "123456",
+      "location": "Medellin",
+      "name": "cesar",
+      "type": "candidate",
+      "title": "Desarrollador Backend",
+      "skills": [
+        "javascript",
+        "python",
+        "html",
+        "css"
+      ],
+      "experience": "3 años",
+      "avatar": null,
+      "plan": "free"
+    },
+    {
+      "id": "8923",
+      "email": "duvan123@gmail.com",
+      "password": "123456",
+      "location": "medellin",
+      "name": "duvan",
+      "type": "candidate",
+      "title": "tecnico laboral en industrias de ocio y hobist",
+      "skills": [
+        "vagancia",
+        "metodos de evitar mis responsabilidades"
+      ],
+      "experience": "20 años",
+      "avatar": null,
+      "plan": "free"
+    },
+    {
+      "id": "3148",
+      "email": "sn@mail.com",
+      "password": "123456",
+      "location": "barcelona",
+      "name": "duvan s a s",
+      "type": "company",
+      "industry": "suministros",
+      "avatar": null,
+      "plan": "gold"
     }
   ],
   "jobs": [
@@ -137,6 +182,27 @@
       "companyName": "1111",
       "candidateId": "1",
       "createdAt": "2026-02-06T17:18:43.640Z"
+    },
+    {
+      "id": "f01a",
+      "companyId": "2",
+      "companyName": "TurtleCorp S.A.S",
+      "candidateId": "a1ef",
+      "createdAt": "2026-02-06T19:04:17.352Z"
+    },
+    {
+      "id": "dc10",
+      "companyId": "2",
+      "companyName": "TurtleCorp S.A.S",
+      "candidateId": "8923",
+      "createdAt": "2026-02-06T19:14:56.590Z"
+    },
+    {
+      "id": "981b",
+      "companyId": "3148",
+      "companyName": "duvan s a s",
+      "candidateId": "1",
+      "createdAt": "2026-02-06T19:18:47.538Z"
     }
   ],
   "reservations": [
@@ -231,6 +297,41 @@
       "candidateId": "1",
       "status": "pending",
       "createdAt": "2026-02-06T17:09:24.253Z"
+    },
+    {
+      "id": "47f4",
+      "jobId": "bbdd",
+      "candidateId": "a1ef",
+      "status": "pending",
+      "createdAt": "2026-02-06T19:02:47.492Z"
+    },
+    {
+      "id": "8e9f",
+      "jobId": "392c",
+      "candidateId": "a1ef",
+      "status": "pending",
+      "createdAt": "2026-02-06T19:02:50.026Z"
+    },
+    {
+      "id": "80f5",
+      "jobId": "392c",
+      "candidateId": "8923",
+      "status": "pending",
+      "createdAt": "2026-02-06T19:11:52.318Z"
+    },
+    {
+      "id": "cc59",
+      "jobId": "bed5",
+      "candidateId": "8923",
+      "status": "pending",
+      "createdAt": "2026-02-06T19:12:09.718Z"
+    },
+    {
+      "id": "db9e",
+      "jobId": "bbdd",
+      "candidateId": "8923",
+      "status": "pending",
+      "createdAt": "2026-02-06T19:12:15.816Z"
     }
   ]
 }
