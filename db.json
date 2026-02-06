@@ -6,6 +6,7 @@
       "password": "candidato123",
       "name": "Carlos García",
       "type": "candidate",
+      "plan": "plata",
       "title": "Desarrollador Full Stack",
       "skills": [
         "JavaScript",
@@ -33,6 +34,7 @@
       "location": "Medellin",
       "name": "Briam Vanegas",
       "type": "candidate",
+      "plan": "free",
       "title": "Desarrollador FullStack",
       "skills": [
         "JavaScript",
@@ -42,62 +44,99 @@
       ],
       "experience": "3 años",
       "avatar": null
+    },
+    {
+      "id": "8ee4",
+      "email": "1@com",
+      "password": "123456",
+      "location": "11",
+      "name": "1111",
+      "type": "company",
+      "industry": "11111",
+      "avatar": null
     }
   ],
   "jobs": [
     {
-      "id": "1",
-      "companyId": 2,
-      "companyName": "TurtleCorp S.A.S",
-      "title": "Desarrollador React Senior",
-      "description": "Buscamos un desarrollador React con experiencia en aplicaciones escalables. Conocimientos de TypeScript y testing.",
-      "location": "Barcelona (Híbrido)",
-      "type": "Tiempo completo",
-      "salary": "45.000 - 55.000 €",
-      "skills": [
-        "React",
-        "TypeScript",
-        "JavaScript"
-      ],
-      "postedAt": "2025-02-01T10:00:00.000Z"
-    },
-    {
-      "id": "2",
-      "companyId": 2,
-      "companyName": "TurtleCorp S.A.S",
-      "title": "Diseñador UX/UI",
-      "description": "Incorporamos diseñador para nuestro equipo de producto. Experiencia con Figma y diseño de sistemas.",
-      "location": "Remoto",
-      "type": "Tiempo completo",
-      "salary": "35.000 - 42.000 €",
-      "skills": [
-        "Figma",
-        "UX",
-        "UI Design"
-      ],
-      "postedAt": "2025-02-02T09:00:00.000Z"
-    },
-    {
-      "id": "43fa",
+      "id": "392c",
       "companyId": "2",
       "companyName": "TurtleCorp S.A.S",
-      "title": "asdad",
-      "description": "asdsada",
-      "location": "asdsad",
-      "type": "asdasd",
-      "salary": "asdasdas",
+      "title": "javascript full stack",
+      "description": "sasasasas",
+      "location": "medellin - remoto",
+      "type": "medio tiempo",
+      "salary": "3900000",
       "skills": [
-        "asdasd"
+        "react"
       ],
-      "postedAt": "2026-02-04T19:21:06.835Z"
+      "postedAt": "2026-02-06T14:06:11.270Z"
+    },
+    {
+      "id": "bcb4",
+      "companyId": "2",
+      "companyName": "TurtleCorp S.A.S",
+      "title": "222222",
+      "description": "2222",
+      "location": "22222",
+      "type": "22222",
+      "salary": "2222",
+      "skills": [
+        "2222"
+      ],
+      "postedAt": "2026-02-06T14:34:05.242Z"
+    },
+    {
+      "id": "bbdd",
+      "companyId": "2",
+      "companyName": "TurtleCorp S.A.S",
+      "title": "232323",
+      "description": "2323232",
+      "location": "3232",
+      "type": "3232",
+      "salary": "32322",
+      "skills": [
+        "323"
+      ],
+      "postedAt": "2026-02-06T14:39:39.945Z"
+    },
+    {
+      "id": "bed5",
+      "companyId": "2",
+      "companyName": "TurtleCorp S.A.S",
+      "title": "edededededededede",
+      "description": "dedededee",
+      "location": "edededededede",
+      "type": "ededededed",
+      "salary": "ededededed",
+      "skills": [
+        "ededededede"
+      ],
+      "postedAt": "2026-02-06T14:46:45.339Z"
     }
   ],
   "matches": [
     {
-      "companyId": 2,
-      "candidateId": 1,
-      "createdAt": "2026-02-04T05:24:02.040Z",
-      "id": "1"
+      "id": "3836",
+      "companyId": "2",
+      "companyName": "TurtleCorp S.A.S",
+      "candidateId": "1",
+      "candidateName": "TurtleCorp S.A.S",
+      "createdAt": "2026-02-06T17:00:30.824Z"
+    },
+    {
+      "id": "6c26",
+      "companyId": "2",
+      "companyName": "TurtleCorp S.A.S",
+      "candidateId": "b203",
+      "candidateName": "TurtleCorp S.A.S",
+      "createdAt": "2026-02-06T17:02:37.574Z"
+    },
+    {
+      "id": "bb25",
+      "companyId": "8ee4",
+      "companyName": "1111",
+      "candidateId": "1",
+      "createdAt": "2026-02-06T17:18:43.640Z"
     }
   ],
   "reservations": [
@@ -125,10 +164,73 @@
     },
     {
       "id": "dd38",
-      "jobId": "43fa",
+      "jobId": null,
       "candidateId": "1",
       "status": "pending",
       "createdAt": "2026-02-04T19:36:45.233Z"
+    },
+    {
+      "id": "a591",
+      "jobId": "bcb4",
+      "candidateId": "b203",
+      "status": "pending",
+      "createdAt": "2026-02-06T15:39:30.248Z"
+    },
+    {
+      "id": "d3df",
+      "jobId": "392c",
+      "candidateId": "b203",
+      "status": "pending",
+      "createdAt": "2026-02-06T15:39:33.764Z"
+    },
+    {
+      "id": "625b",
+      "jobId": null,
+      "candidateId": "b203",
+      "status": "pending",
+      "createdAt": "2026-02-06T15:41:58.495Z"
+    },
+    {
+      "id": "b89e",
+      "jobId": "bed5",
+      "candidateId": "b203",
+      "status": "pending",
+      "createdAt": "2026-02-06T15:42:00.559Z"
+    },
+    {
+      "id": "cc45",
+      "jobId": "bbdd",
+      "candidateId": "b203",
+      "status": "pending",
+      "createdAt": "2026-02-06T15:54:40.635Z"
+    },
+    {
+      "id": "e1f7",
+      "jobId": "bcb4",
+      "candidateId": "1",
+      "status": "pending",
+      "createdAt": "2026-02-06T17:09:17.204Z"
+    },
+    {
+      "id": "5cb0",
+      "jobId": "392c",
+      "candidateId": "1",
+      "status": "pending",
+      "createdAt": "2026-02-06T17:09:20.637Z"
+    },
+    {
+      "id": "4536",
+      "jobId": "bbdd",
+      "candidateId": "1",
+      "status": "pending",
+      "createdAt": "2026-02-06T17:09:22.721Z"
+    },
+    {
+      "id": "74d1",
+      "jobId": "bed5",
+      "candidateId": "1",
+      "status": "pending",
+      "createdAt": "2026-02-06T17:09:24.253Z"
     }
   ]
 }

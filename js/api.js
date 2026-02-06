@@ -40,5 +40,5 @@ const api = {
     const res = await fetch(`${API_URL}/${resource}/${id}`, { method: 'DELETE' });
     if (!res.ok) throw new Error(res.statusText);
     return res.json();
-  },
+  }
 };

@@ -306,11 +306,28 @@ body {
 /* Dashboard layout */
 .dashboard {
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 1fr 3fr;
   gap: 24px;
   max-width: 1128px;
   margin: 0 auto;
   padding: 24px;
+}
+.contenedor-principal-cards-jobs {
+  width: 100%;
+    display: flex;
+    flex-wrap: wrap;        
+    gap: 16px;              
+    align-items: flex-start;
+    overflow-y: auto;       
+    height: 300px;
+}
+.card-ofert {
+  width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 12px;
 }
 
 @media (max-width: 968px) {
@@ -344,6 +361,7 @@ body {
 .job-card {
   cursor: pointer;
   border: 1px solid var(--border);
+  background-color: #1972ce2b;
 }
 
 .job-card:hover {
@@ -396,6 +414,20 @@ body {
   border-radius: 8px;
   margin-bottom: 12px;
   transition: border-color 0.2s;
+  background-color: #1972ce2b;
+  width: 300px;
+}
+.user-card2 {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin-bottom: 12px;
+  transition: border-color 0.2s;
+  background-color: #1972ce2b;
+  width: 330px;
 }
 
 .user-card:hover {
@@ -570,4 +602,37 @@ body {
 .badge-declined {
   background: #fde8e8;
   color: #c5221f;
+}
+
+.container-application-cards {
+  width: 100%;
+  height: 300px;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.candidateView {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start; 
+  flex-wrap: wrap;
+  overflow-y: auto;
+  gap: 12px;
+}
+.candidateView2 {
+  width: 100%;
+  height: 250px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start; 
+  flex-wrap: wrap;
+  overflow-y: auto;
+  gap: 12px;
+  padding-top: 12px;
 }

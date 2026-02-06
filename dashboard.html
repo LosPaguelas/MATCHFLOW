@@ -23,6 +23,33 @@
           <div id="profileAvatar" class="profile-avatar">U</div>
           <h3 id="profileName">Usuario</h3>
           <p id="profileTitle" style="color: var(--text-secondary); font-size: 0.9rem;"></p>
+          <p>Plan actual: <span id="userPlan"></span></p>
+          <div class="plans">
+            <h3>Cambiar Plan</h3>
+
+            <button onclick="changePlan('free')">
+              Plan Free
+            </button>
+
+            <button onclick="changePlan('plata')">
+              Plan Plata
+            </button>
+
+            <button onclick="changePlan('gold')">
+              Plan Oro
+            </button>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
           <button type="button" class="btn btn-secondary" id="editProfileBtn" style="width: 100%; margin-top: 12px;">Editar perfil</button>
         </div>
       </div>
@@ -30,7 +57,7 @@
       <!-- Solo candidatos: Mis solicitudes -->
       <div id="candidateApplicationsCard" class="card" style="display: none;">
         <h3 class="card-title">Mis solicitudes</h3>
-        <div id="candidateApplicationsList"></div>
+        <div id="candidateApplicationsList" class="container-application-cards"></div>
       </div>
 
       <!-- Solo candidatos: Mis matches -->
@@ -44,49 +71,18 @@
         <h3 class="card-title">Mis ofertas</h3>
         <p id="jobCount">0 ofertas publicadas</p>
       </div>
-    </aside>
 
-    <!-- Contenido principal -->
-    <main>
-      <!-- Vista Candidato: Ofertas -->
-      <div id="candidateView" style="display: none;">
-        <div class="card">
-          <h2 class="card-title">Ofertas de empleo</h2>
-          <p style="color: var(--text-secondary); margin-bottom: 16px;">Explora las ofertas publicadas por las empresas</p>
-          <div id="jobsList"></div>
-        </div>
-      </div>
 
-      <!-- Vista Empresa: Publicar ofertas + Candidatos -->
-      <div id="companyView" style="display: none;">
-        <div class="card">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
-            <h2 class="card-title" style="margin: 0;">Mis ofertas</h2>
-            <button class="btn btn-primary" id="newJobBtn" style="width: auto;">+ Nueva oferta</button>
-          </div>
-          <div id="myJobsList"></div>
-        </div>
 
-        <!-- Solicitudes a mis ofertas -->
-        <div class="card" id="applicationsToMyJobsCard">
-          <h2 class="card-title">Solicitudes a mis ofertas</h2>
-          <p style="color: var(--text-secondary); margin-bottom: 16px;">Candidatos que aplicaron a tus vacantes. Acepta o declina.</p>
-          <div id="applicationsToMyJobsList"></div>
-        </div>
 
-        <div class="card">
-          <h2 class="card-title">Candidatos - Hacer match o reservar</h2>
-          <p style="color: var(--text-secondary); margin-bottom: 16px;">Encuentra candidatos y haz match o resérvalos para tus vacantes</p>
-          <div id="candidatesList"></div>
-        </div>
-      </div>
-    </main>
 
-    <!-- Columna derecha: Notificaciones / Reservaciones -->
-    <aside>
+
+
+      <!-- Columna derecha: Notificaciones / Reservaciones -->
+    
       <div id="candidateReservations" class="card sidebar-card" style="display: none;">
         <h3 class="card-title">Empresas que me reservaron</h3>
-        <div id="candidateReservationsList"></div>
+        <!-- <div id="candidateReservationsList"></div> -->
       </div>
 
       <div id="companyMatchesCard" class="card sidebar-card" style="display: none;">
@@ -98,7 +94,53 @@
         <h3 class="card-title">Candidatos reservados</h3>
         <div id="companyReservationsList"></div>
       </div>
+    
+
+
+
+
+
+
+
     </aside>
+
+    <!-- Contenido principal -->
+    <main>
+      <!-- Vista Candidato: Ofertas -->
+      <div id="candidateView" style="display: none;" class="candidateView">
+        <div class="card">
+          <h2 class="card-title">Ofertas de empleo</h2>
+          <p style="color: var(--text-secondary); margin-bottom: 16px;">Explora las ofertas publicadas por las empresas</p>
+          <div id="jobsList" class="candidateView"></div>
+        </div>
+      </div>
+
+      <!-- Vista Empresa: Publicar ofertas + Candidatos -->
+      <div id="companyView" style="display: none;">
+        <div class="card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+            <h2 class="card-title" style="margin: 0;">Mis ofertas</h2>
+            <button class="btn btn-primary" id="newJobBtn" style="width: auto;">+ Nueva oferta</button>
+          </div>
+          <div class="contenedor-principal-cards-jobs">
+            <div id="myJobsList" class="card-ofert"></div>
+          </div>
+        </div>
+
+        <!-- Solicitudes a mis ofertas -->
+        <div class="card" id="applicationsToMyJobsCard">
+          <h2 class="card-title">Solicitudes a mis ofertas</h2>
+          <p style="color: var(--text-secondary); margin-bottom: 16px;">Candidatos que aplicaron a tus vacantes. Acepta o declina.</p>
+          <div id="applicationsToMyJobsList" class="candidateView2"></div>
+        </div>
+
+        <div class="card">
+          <h2 class="card-title">Candidatos - Hacer match o reservar</h2>
+          <p style="color: var(--text-secondary); margin-bottom: 16px;">Encuentra candidatos y haz match o resérvalos para tus vacantes</p>
+          <div id="candidatesList" class="candidateView2"></div>
+        </div>
+      </div>
+    </main>
   </div>
 
   <!-- Modal Nueva Oferta -->

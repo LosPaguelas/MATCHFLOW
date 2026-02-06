@@ -46,6 +46,8 @@ document.getElementById('editProfileBtn').addEventListener('click', (e) => {
     document.getElementById('profileSkillsInput').value = (user.skills || []).join(', ');
     document.getElementById('profileExperienceInput').value = user.experience || '';
     document.getElementById('profileLocationInput').value = user.location || '';
+    document.getElementById('profilePlanInput').value = user.plan || 'free';
+
   } else {
     document.getElementById('profileCompanyNameInput').value = user.name || '';
     document.getElementById('profileIndustryInput').value = user.industry || '';
@@ -67,6 +69,8 @@ document.getElementById('profileForm').addEventListener('submit', async (e) => {
     updated.skills = document.getElementById('profileSkillsInput').value.split(',').map((s) => s.trim()).filter(Boolean);
     updated.experience = document.getElementById('profileExperienceInput').value.trim();
     updated.location = document.getElementById('profileLocationInput').value.trim();
+    updated.plan = document.getElementById('profilePlanInput').value;
+
     if (!updated.name) {
       alert('El nombre es obligatorio');
       return;
@@ -103,6 +107,34 @@ if (Guard.isCandidate()) {
   initCompanyView();
 }
 
+window.changePlan = async function(plan) {
+  try {
+
+    const updatedUser = {
+      ...user,
+      plan
+    };
+
+    await api.put('users', user.id, updatedUser);
+
+    // Actualizar sesión
+    Guard.setSession(updatedUser);
+    user = updatedUser;
+
+    alert(`Ahora tienes plan ${plan.toUpperCase()}`);
+
+    refreshProfileDisplay();
+
+  } catch (err) {
+    console.error(err);
+    alert("Error al cambiar plan");
+  }
+};
+
+document.getElementById('userPlan').textContent =
+  user.plan || 'free';
+
+
 // ========== VISTA CANDIDATO ==========
 function initCandidateView() {
   document.getElementById('candidateView').style.display = 'block';
@@ -113,7 +145,7 @@ function initCandidateView() {
   loadJobs();
   loadCandidateApplications();
   loadCandidateMatches();
-  loadCandidateReservations();
+  // loadCandidateReservations();
 }
 
 async function loadJobs() {
@@ -273,17 +305,28 @@ async function loadCandidateMatches() {
     }
 
     container.innerHTML = myMatches.map((m) => {
-      const company = users.find((u) => u.id === m.companyId);
-      return company ? `
-        <div class="user-card">
-          <div class="user-avatar">${(company.name || 'E')[0]}</div>
-          <div class="user-info">
-            <h4>${escapeHtml(company.name)}</h4>
-            <span class="badge badge-match">Match</span>
-          </div>
-        </div>
-      ` : '';
-    }).filter(Boolean).join('');
+
+  // Primero intenta usar el nombre guardado en el match
+  let companyName = m.companyName;
+
+  // Si no existe, lo busca en users (compatibilidad)
+  if (!companyName) {
+    const company = users.find((u) => String(u.id) === String(m.companyId));
+    companyName = company?.name;
+  }
+
+  return companyName ? `
+    <div class="user-card">
+      <div class="user-avatar">${companyName[0].toUpperCase()}</div>
+      <div class="user-info">
+        <h4>${escapeHtml(companyName)}</h4>
+        <span class="badge badge-match">Match</span>
+      </div>
+    </div>
+  ` : '';
+
+}).filter(Boolean).join('');
+
   } catch (err) {
     console.error(err);
     document.getElementById('candidateMatchesList').innerHTML = '<p>Error al cargar matches</p>';
@@ -331,7 +374,7 @@ function initCompanyView() {
   loadApplicationsToMyJobs();
   loadCandidates();
   loadCompanyMatches();
-  loadCompanyReservations();
+  // loadCompanyReservations();
 
   // Modal nueva oferta
   document.getElementById('newJobBtn').addEventListener('click', () => {
@@ -384,7 +427,7 @@ async function loadMyJobs() {
           <h3 class="job-title">${escapeHtml(job.title)}</h3>
           <div class="job-meta">${escapeHtml(job.location)} • ${escapeHtml(job.type)}</div>
         </div>
-        <button class="btn btn-secondary" onclick="deleteJob(${job.id})" style="width: auto;">Eliminar</button>
+        <button class="btn btn-secondary" onclick="deleteJob('${job.id}')" style="width: auto;">Eliminar</button>
       </div>
     `).join('');
   } catch (err) {
@@ -418,12 +461,9 @@ async function loadApplicationsToMyJobs() {
           <div class="user-info" style="flex: 1;">
             <h4>${escapeHtml(candidate.name || candidate.email)}</h4>
             <p class="subtitle">${escapeHtml(job.title)} • ${escapeHtml(candidate.title || '')}</p>
-            <span class="badge ${a.status === 'accepted' ? 'badge-match' : a.status === 'declined' ? 'badge-declined' : 'badge-pending'}">${statusLabels[a.status]}</span>
+            
             ${isPending ? `
-              <div class="user-actions" style="margin-top: 12px;">
-                <button class="btn btn-success" style="width: auto; padding: 8px 16px;" onclick="respondApplication(${a.id}, 'accepted')">Aceptar</button>
-                <button class="btn btn-secondary" style="width: auto; padding: 8px 16px;" onclick="respondApplication(${a.id}, 'declined')">Declinar</button>
-              </div>
+              
             ` : ''}
           </div>
         </div>
@@ -444,7 +484,7 @@ window.respondApplication = async function (applicationId, status) {
     alert('Error al actualizar');
   }
 };
-
+// ----------------------------------------------------------
 window.deleteJob = async function (id) {
   if (!confirm('¿Eliminar esta oferta?')) return;
   try {
@@ -471,9 +511,8 @@ async function loadCandidates() {
 
     container.innerHTML = candidates.map((c) => {
       const isMatch = matches.some((m) => m.companyId === user.id && m.candidateId === c.id);
-      const isReserved = reservations.some((r) => r.companyId === user.id && r.candidateId === c.id);
       return `
-        <div class="user-card">
+        <div class="user-card2">
           <div class="user-avatar">${(c.name || c.email)[0].toUpperCase()}</div>
           <div class="user-info" style="flex: 1;">
             <h4>${escapeHtml(c.name || c.email)}</h4>
@@ -482,8 +521,7 @@ async function loadCandidates() {
               ${(c.skills || []).slice(0, 5).map((s) => `<span class="skill-tag">${escapeHtml(s)}</span>`).join('')}
             </div>
             <div class="user-actions">
-              ${!isMatch ? `<button class="btn btn-primary" style="width: auto; padding: 8px 16px;" onclick="matchCandidate(${c.id})">✨ Hacer match</button>` : '<span class="badge badge-match">Match realizado</span>'}
-              ${!isReserved ? `<button class="btn btn-secondary" style="width: auto; padding: 8px 16px;" onclick="reserveCandidate(${c.id})">📌 Reservar</button>` : '<span class="badge badge-reserved">Reservado</span>'}
+              ${!isMatch ? `<button class="btn btn-primary" style="width: auto; padding: 8px 16px;" onclick="matchCandidate('${c.id}')">✨ Hacer match</button>` : '<span class="badge badge-match">Match realizado</span>'}
             </div>
           </div>
         </div>
@@ -497,85 +535,180 @@ async function loadCandidates() {
 
 window.matchCandidate = async function (candidateId) {
   try {
-    const existing = await api.get('matches');
-    if (existing.some((m) => m.companyId === user.id && m.candidateId === candidateId)) return;
-    await api.post('matches', { companyId: user.id, candidateId, createdAt: new Date().toISOString() });
+
+    const matches = await api.get('matches');
+    const users = await api.get('users');
+
+    const candidate = users.find(u => String(u.id) === String(candidateId));
+
+    // Plan por defecto free
+    const plan = candidate?.plan || 'free';
+
+    const planLimits = {
+      free: 1,
+      plata: 3,
+      gold: 6
+    };
+
+    const candidateMatches = matches.filter(
+      m => String(m.candidateId) === String(candidateId)
+    );
+
+    // Validar límite
+    if (candidateMatches.length >= planLimits[plan]) {
+      alert(`Este candidato tiene plan ${plan} y ya alcanzó su límite de matches.`);
+      return;
+    }
+
+    // Validar match existente empresa-candidato
+    const alreadyMatch = matches.some(m =>
+      String(m.companyId) === String(user.id) &&
+      String(m.candidateId) === String(candidateId)
+    );
+
+    if (alreadyMatch) {
+      alert("Ya hiciste match con este candidato");
+      return;
+    }
+
+    // Crear match
+    await api.post('matches', {
+      companyId: String(user.id),
+      companyName: user.name,
+      candidateId: String(candidateId),
+      createdAt: new Date().toISOString()
+    });
+
+    alert("Match realizado 🚀");
+
     loadCandidates();
     loadCompanyMatches();
+
   } catch (err) {
+    console.error(err);
     alert('Error al hacer match');
   }
 };
 
-window.reserveCandidate = async function (candidateId) {
-  try {
-    const existing = await api.get('reservations');
-    if (existing.some((r) => r.companyId === user.id && r.candidateId === candidateId)) return;
-    await api.post('reservations', { companyId: user.id, candidateId, createdAt: new Date().toISOString() });
-    loadCandidates();
-    loadCompanyReservations();
-  } catch (err) {
-    alert('Error al reservar');
-  }
-};
+
+
+
+
+// window.reserveCandidate = async function (candidateId) {
+//   try {
+//     const existing = await api.get('reservations');
+//     if (existing.some((r) => r.companyId === user.id && r.candidateId === candidateId)) return;
+//     await api.post('reservations', { companyId: user.id, candidateId, createdAt: new Date().toISOString() });
+//     loadCandidates();
+//     loadCompanyReservations();
+//   } catch (err) {
+//     alert('Error al reservar');
+//   }
+// };
+
+// async function loadCompanyMatches() {
+//   try {
+//     const matches = await api.get('matches');
+//     const myMatches = matches.filter((m) => m.companyId === user.id);
+//     const users = await api.get('users');
+//     const container = document.getElementById('companyMatchesList');
+
+//     if (myMatches.length === 0) {
+//       container.innerHTML = '<div class="empty-state"><p>No has hecho match con nadie aún</p></div>';
+//       return;
+//     }
+
+//     container.innerHTML = myMatches.map((m) => {
+//       const cand = users.find((u) => u.id === m.candidateId);
+//       return cand ? `
+//         <div class="user-card">
+//           <div class="user-avatar">${(cand.name || cand.email)[0].toUpperCase()}</div>
+//           <div class="user-info">
+//             <h4>${escapeHtml(cand.name || cand.email)}</h4>
+//             <span class="badge badge-match">Match</span>
+//           </div>
+//         </div>
+//       ` : '';
+//     }).filter(Boolean).join('');
+//   } catch (err) {
+//     console.error(err);
+//   }
+// }
+
+/* ================= MATCHES EMPRESA ================= */
+
 
 async function loadCompanyMatches() {
-  try {
-    const matches = await api.get('matches');
-    const myMatches = matches.filter((m) => m.companyId === user.id);
-    const users = await api.get('users');
-    const container = document.getElementById('companyMatchesList');
+try {
+const matches = await api.get('matches');
+const users = await api.get('users');
 
-    if (myMatches.length === 0) {
-      container.innerHTML = '<div class="empty-state"><p>No has hecho match con nadie aún</p></div>';
-      return;
-    }
 
-    container.innerHTML = myMatches.map((m) => {
-      const cand = users.find((u) => u.id === m.candidateId);
-      return cand ? `
-        <div class="user-card">
-          <div class="user-avatar">${(cand.name || cand.email)[0].toUpperCase()}</div>
-          <div class="user-info">
-            <h4>${escapeHtml(cand.name || cand.email)}</h4>
-            <span class="badge badge-match">Match</span>
-          </div>
-        </div>
-      ` : '';
-    }).filter(Boolean).join('');
-  } catch (err) {
-    console.error(err);
-  }
+const myMatches = matches.filter((m) =>
+String(m.companyId) === String(user.id)
+);
+
+
+const container = document.getElementById('companyMatchesList');
+
+
+if (!myMatches.length) {
+container.innerHTML = '<div class="empty-state"><p>No has hecho match con nadie aún</p></div>';
+return;
 }
 
-async function loadCompanyReservations() {
-  try {
-    const reservations = await api.get('reservations');
-    const myReservations = reservations.filter((r) => r.companyId === user.id);
-    const users = await api.get('users');
-    const container = document.getElementById('companyReservationsList');
 
-    if (myReservations.length === 0) {
-      container.innerHTML = '<div class="empty-state"><p>No has reservado candidatos</p></div>';
-      return;
-    }
+container.innerHTML = myMatches.map((m) => {
+const cand = users.find((u) => String(u.id) === String(m.candidateId));
 
-    container.innerHTML = myReservations.map((r) => {
-      const cand = users.find((u) => u.id === r.candidateId);
-      return cand ? `
-        <div class="user-card">
-          <div class="user-avatar">${(cand.name || cand.email)[0].toUpperCase()}</div>
-          <div class="user-info">
-            <h4>${escapeHtml(cand.name || cand.email)}</h4>
-            <span class="badge badge-reserved">Reservado</span>
-          </div>
-        </div>
-      ` : '';
-    }).filter(Boolean).join('');
-  } catch (err) {
-    console.error(err);
-  }
+
+return cand ? `
+<div class="user-card">
+<div class="user-avatar">${(cand.name || cand.email)[0].toUpperCase()}</div>
+<div class="user-info">
+<h4>${escapeHtml(cand.name || cand.email)}</h4>
+<span class="badge badge-match">Match</span>
+</div>
+</div>
+` : '';
+
+
+}).join('');
+
+
+} catch (err) {
+console.error(err);
 }
+}
+
+// async function loadCompanyReservations() {
+//   try {
+//     const reservations = await api.get('reservations');
+//     const myReservations = reservations.filter((r) => r.companyId === user.id);
+//     const users = await api.get('users');
+//     const container = document.getElementById('companyReservationsList');
+
+//     if (myReservations.length === 0) {
+//       container.innerHTML = '<div class="empty-state"><p>No has reservado candidatos</p></div>';
+//       return;
+//     }
+
+//     container.innerHTML = myReservations.map((r) => {
+//       const cand = users.find((u) => u.id === r.candidateId);
+//       return cand ? `
+//         <div class="user-card">
+//           <div class="user-avatar">${(cand.name || cand.email)[0].toUpperCase()}</div>
+//           <div class="user-info">
+//             <h4>${escapeHtml(cand.name || cand.email)}</h4>
+//             <span class="badge badge-reserved">Reservado</span>
+//           </div>
+//         </div>
+//       ` : '';
+//     }).filter(Boolean).join('');
+//   } catch (err) {
+//     console.error(err);
+//   }
+// }
 
 function escapeHtml(text) {
   if (!text) return '';
