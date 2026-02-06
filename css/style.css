@@ -1,11 +1,10 @@
 /* MatchFlow - Tema empleo profesional (LinkedIn/Indeed style) */
 :root {
-  --primary: #0a66c2;
-  --primary-dark: #004182;
-  --primary-light: #378fe9;
+  
+  --primary-light: #378fe9; */
   --secondary: #057642;
   --bg-light: #f3f6f8;
-  --bg-card: #ffffff;
+
   --text-primary: #000000e6;
   --text-secondary: #666666;
   --border: #e0e0e0;
@@ -31,7 +30,6 @@ body {
 
 /* Header / Nav */
 .navbar {
-  background: var(--bg-card);
   border-bottom: 1px solid var(--border);
   padding: 0 24px;
   height: 52px;
@@ -41,7 +39,15 @@ body {
   position: sticky;
   top: 0;
   z-index: 100;
+  background-color: #c6daff;
 }
+
+.sech{
+
+  background-image: linear-gradient( rgba(0, 0, 255, 0.414) 80%);
+}
+
+
 
 .logo {
   font-size: 1.5rem;
@@ -77,6 +83,7 @@ body {
   text-align: center;
   margin-bottom: 48px;
   padding: 0 16px;
+ 
 }
 
 .landing-hero h1 {
@@ -95,6 +102,8 @@ body {
   line-height: 1.6;
 }
 
+
+
 .landing-cta {
   display: flex;
   gap: 12px;
@@ -103,11 +112,14 @@ body {
   margin-top: 24px;
 }
 
-.landing-description {
+.landing-description{
   text-align: center;
   margin-bottom: 40px;
   padding: 32px;
+  
 }
+
+
 
 .landing-description h2 {
   font-size: 1.5rem;
@@ -116,7 +128,6 @@ body {
 }
 
 .landing-description p {
-  color: var(--text-secondary);
   line-height: 1.7;
 }
 
@@ -180,6 +191,8 @@ body {
   margin-bottom: 24px;
   line-height: 1.6;
 }
+
+
 
 /* Auth forms */
 .auth-container {
