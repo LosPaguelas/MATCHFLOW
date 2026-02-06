@@ -18,37 +18,43 @@ MatchFlow moves to Phase 2, focusing on inherited code stabilization and monetiz
 
 #### Free Candidate
 
+(priority from bronze to gold)
+
 - Max 1 active reservation
 - If reserved → other companies cannot reserve
 - Visibility behavior = inherited from Part 1 (hidden or marked reserved)
-- Pro Candidate – Level 1
+
+#### Pro Candidate – Level 1
 - Max 2 simultaneous reservations
 - System must block the 3rd reservation
-- Pro Candidate – Level 2
+
+#### Pro Candidate – Level 2
 - Max 5 simultaneous reservations
 - System must block the 6th reservation
 - Enforcement Rule
 - Must be enforced at business logic layer (service/controller)
 - UI checks alone are invalid
 
----
-
 ### Company Subscription Plans (Visibility & Filtering Domain)
 
 Core concept: Company plan controls what candidates they can see and how they can filter them.
 
-- Free Company
+#### Free Company
 - Default MatchFlow visibility rules
 - Limited filtering (basic filters only)
 - Cannot bypass reservation blocking
-- Business Company
+
+### Business Company
+(language filter )
 - Enhanced candidate visibility (group decision)
 - Advanced filters (e.g., skill-based filters)
 - Potential higher search/match limits
-- Enterprise Company
+
+### Enterprise Company
+(experience filter)
 - Can see all candidates, including reserved ones
 - Full filtering freedom (skills, attributes, custom filters)
-- Still cannot reserve if candidate reached reservation limit
+- Still cannot reserve if candidate reached reservation     
 - Cross-Plan Global Business Rules (Hard System Constraints)
 
 - These rules override all plans:
