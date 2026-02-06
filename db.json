@@ -190,22 +190,6 @@
       "postedAt": "2025-02-01T10:00:00.000Z"
     },
     {
-      "id": "2",
-      "companyId": 2,
-      "companyName": "TurtleCorp S.A.S",
-      "title": "Diseñador UX/UI",
-      "description": "Incorporamos diseñador para nuestro equipo de producto. Experiencia con Figma y diseño de sistemas.",
-      "location": "Remoto",
-      "type": "Tiempo completo",
-      "salary": "35.000 - 42.000 €",
-      "skills": [
-        "Figma",
-        "UX",
-        "UI Design"
-      ],
-      "postedAt": "2025-02-02T09:00:00.000Z"
-    },
-    {
       "id": "3",
       "companyId": 2,
       "companyName": "TurtleCorp S.A.S",
@@ -238,22 +222,6 @@
         "SQL"
       ],
       "postedAt": "2025-02-03T15:00:00.000Z"
-    },
-    {
-      "id": "6",
-      "companyId": 2,
-      "companyName": "TurtleCorp S.A.S",
-      "title": "QA Automation Engineer",
-      "description": "Automatización de pruebas end-to-end y unitarias en aplicaciones web.",
-      "location": "Valencia (Híbrido)",
-      "type": "Tiempo completo",
-      "salary": "35.000 - 45.000 €",
-      "skills": [
-        "Cypress",
-        "Jest",
-        "Selenium"
-      ],
-      "postedAt": "2025-02-04T13:45:00.000Z"
     }
   ],
   "matches": [
@@ -268,6 +236,12 @@
       "candidateId": 3,
       "createdAt": "2026-02-06T20:06:07.658Z",
       "id": "WeeK6JN"
+    },
+    {
+      "companyId": "2",
+      "candidateId": 4,
+      "createdAt": "2026-02-06T20:07:36.546Z",
+      "id": "rv0OPyq"
     }
   ],
   "reservations": [
@@ -282,16 +256,15 @@
       "candidateId": 1,
       "createdAt": "2026-02-06T20:06:04.890Z",
       "id": "DObYJ4_"
+    },
+    {
+      "companyId": "2",
+      "candidateId": 4,
+      "createdAt": "2026-02-06T20:07:37.626Z",
+      "id": "FwS3oLl"
     }
   ],
   "applications": [
-    {
-      "jobId": 2,
-      "candidateId": 1,
-      "status": "accepted",
-      "createdAt": "2026-02-04T05:21:42.252Z",
-      "id": "1"
-    },
     {
       "id": "e4e6",
       "jobId": "1",
