@@ -628,7 +628,7 @@ window.matchCandidate = async function (candidateId) {
 //             <span class="badge badge-match">Match</span>
 //           </div>
 //         </div>
-//       ` : '';
+//       ` : ''
 //     }).filter(Boolean).join('');
 //   } catch (err) {
 //     console.error(err);
