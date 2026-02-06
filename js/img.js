@@ -4,9 +4,9 @@ const box = document.querySelector('.box');
 button.addEventListener('click', () => {
   if (box.classList.contains('show')) {
     box.classList.remove('show');
-    button.textContent = 'show';
+    button.textContent = 'Para candidatos';
   } else {
     box.classList.add('show');
-    button.textContent = 'hide';
+    button.textContent = 'Para candidatos';
   }
 });

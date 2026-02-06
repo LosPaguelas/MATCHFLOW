@@ -1,8 +1,8 @@
 /* MatchFlow - Tema empleo profesional (LinkedIn/Indeed style) */
 :root {
-  --primary: #0a66c2;
-  --primary-dark: #004182;
-  --primary-light: #378fe9;
+  --primary: #000000;
+  --primary-dark: #000000;
+  --primary-light: #828a92;
   --secondary: #057642;
   --bg-light: #f3f6f8;
   --bg-card: #ffffff;
@@ -17,6 +17,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 body {
@@ -27,6 +28,7 @@ body {
   color: var(--text-primary);
   line-height: 1.5;
   min-height: 100vh;
+  background-color: #b3daff58;
 }
 
 /* Header / Nav */
@@ -68,7 +70,7 @@ body {
 
 /* Landing page */
 .landing-page {
-  max-width: 900px;
+  max-width: 1493px;
   margin: 0 auto;
   padding: 48px 24px 64px;
 }
@@ -101,12 +103,19 @@ body {
   justify-content: center;
   flex-wrap: wrap;
   margin-top: 24px;
+  text-decoration: none;
+}
+
+.landing-cta a{
+  
+  text-decoration: none;
 }
 
 .landing-description {
   text-align: center;
   margin-bottom: 40px;
   padding: 32px;
+  width: 100%;
 }
 
 .landing-description h2 {
@@ -128,17 +137,15 @@ body {
 }
 
 .landing-feature-card {
-  padding: 28px;
+  padding: 58px;
   text-align: center;
   transition:
     transform 0.2s,
     box-shadow 0.2s;
+    height: 280px;
 }
 
-.landing-feature-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-hover);
-}
+
 
 .feature-icon {
   font-size: 2.5rem;
@@ -150,6 +157,8 @@ body {
   font-size: 1.15rem;
   margin-bottom: 8px;
   color: var(--text-primary);
+  /* margin-top: 100px; */
+
 }
 
 .landing-feature-card p {
@@ -158,16 +167,18 @@ body {
   line-height: 1.6;
 }
 
+.landing-final a{
+  text-decoration: none;
+}
+
 .landing-final {
   text-align: center;
   padding: 40px 32px;
-  background: linear-gradient(
-    135deg,
-    rgba(10, 102, 194, 0.06),
-    rgba(55, 143, 233, 0.04)
-  );
   border: 1px solid rgba(10, 102, 194, 0.2);
+  
 }
+
+
 
 .landing-final h2 {
   font-size: 1.5rem;
@@ -216,7 +227,7 @@ body {
 }
 
 .form-group label {
-  display: block;
+  /* display: block; */
   font-weight: 500;
   margin-bottom: 6px;
   font-size: 0.9rem;
@@ -484,7 +495,7 @@ body {
   background: var(--bg-card);
   border-radius: 8px;
   max-width: 500px;
-  width: 90%;
+  width: 100%;
   max-height: 90vh;
   overflow-y: auto;
 }
@@ -576,21 +587,24 @@ body {
 
 .box {
   position: absolute;
-  height: 400px;
-  width: 400px;
+  height: 680px;
+  width: 1500px;
   clip-path: inset(50% round 50%);
   transition: clip-path 1s;
+  bottom: -46px;
+  border-radius: 20px;
 }
 
 .box img {
   position: absolute;
-  top: -10px;
-  left: -10px;
-  width: 70%;
-  height: 70%;
+  
+  left: -52px;
+  width: 60%;
+  height: 50%;
   object-fit: cover;
   transform: scale(1.1);
   transition: transform 1s ease-in-out;
+  border-radius: 10px;
 }
 
 .box.show {
@@ -604,14 +618,13 @@ body {
 button {
   display: inline-flex;
   justify-content: center;
-  width: 100px;
-  background-color: black;
-  color: white;
-  outline: none;
-  border: none;
+  width: 200px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  border:none ;
+  font-weight: bold;
   letter-spacing: 1px;
   font-size: 16px;
-  font-weight: bold;
   text-transform: lowercase;
   padding: 0.5rem 1rem;
   cursor: pointer;
