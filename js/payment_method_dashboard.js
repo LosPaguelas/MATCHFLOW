@@ -1,3 +1,9 @@
+    
+    // let sheinPlan = null;
+    
+   
+    
+    
     document.addEventListener('DOMContentLoaded', () => {
     const modal = document.getElementById('paymentModalDashboard');
     let backdrop = null;
@@ -35,12 +41,18 @@
     buttons.forEach((button) => {
     button.addEventListener('click', (e) => {
         e.preventDefault();
+
         const target = e.currentTarget;
         plan = target.dataset.plan || '';
         price = Number(target.dataset.price) || 0;
         const amountEl = document.getElementById('dashboard-amount');
+
+        // sheinPlan = plan;
+
         if (amountEl) amountEl.value = price;
+
         showModal();
+
     });
     });
 
@@ -58,11 +70,19 @@
     const closeBtn = modal ? modal.querySelector('.btn-close') : null;
     if (closeBtn) closeBtn.addEventListener('click', () => closeModal());
 
+    
+
+
 
     const form = document.getElementById('dashboardPaymentForm');
     if (form) {
     form.addEventListener('submit', (e) => {
         e.preventDefault();
+
+        
+
+
+
         const amountEl = document.getElementById('dashboard-amount');
         const amount = Number((amountEl && amountEl.value) || 0);
         if (price && amount < price) {
@@ -74,3 +94,24 @@
     });
     }
     });
+
+
+    // const content = document.getElementById('content-button');
+    
+    // const buttonPlan = document.createElement('article');
+
+    // buttonPlan.innerHTML = `
+    //     <div class="mt-3">
+    //         <button type="button"  class="btn btn-outline-secondary w-100 sidebar-plan" data-plan="plata" data-price="100">Comprar Plata</button>
+    //         <button type="button"  class="btn btn-warning w-100 sidebar-plan" data-plan="golden" data-price="250" style="margin-top:8px;">Comprar Golden</button>
+    //       </div>
+
+    // `
+
+    // content.appendChild(buttonPlan);
+
+    // let bntPlan = document.getElementById('boton-plan');
+
+    // bntPlan.innerHTML = `
+    //      <button class="btn btn-primary" onclick="changePlan('${sheinPlan}')" type="submit">Change plan</button>
+    // `
