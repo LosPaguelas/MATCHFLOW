@@ -571,3 +571,51 @@ body {
   background: #fde8e8;
   color: #c5221f;
 }
+
+
+
+.box {
+  position: absolute;
+  height: 400px;
+  width: 400px;
+  clip-path: inset(50% round 50%);
+  transition: clip-path 1s;
+}
+
+.box img {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 70%;
+  height: 70%;
+  object-fit: cover;
+  transform: scale(1.1);
+  transition: transform 1s ease-in-out;
+}
+
+.box.show {
+  clip-path: inset(0% round 0%);
+}
+
+.box.show img {
+  transform: scale(1);
+}
+
+button {
+  display: inline-flex;
+  justify-content: center;
+  width: 100px;
+  background-color: black;
+  color: white;
+  outline: none;
+  border: none;
+  letter-spacing: 1px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: lowercase;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  margin-bottom: 2rem;
+}
+
+
