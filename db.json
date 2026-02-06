@@ -7,7 +7,11 @@
       "name": "Carlos García Velez",
       "type": "candidate",
       "title": "Desarrollador Full Stack",
-      "skills": ["JavaScript", "React", "Node.js"],
+      "skills": [
+        "JavaScript",
+        "React",
+        "Node.js"
+      ],
       "experience": "3 años",
       "location": "Madrid",
       "avatar": null
@@ -30,7 +34,12 @@
       "name": "Briam Vanegas",
       "type": "candidate",
       "title": "Desarrollador FullStack",
-      "skills": ["JavaScript", "HTML", "CSS", "JSON. NODE.JS"],
+      "skills": [
+        "JavaScript",
+        "HTML",
+        "CSS",
+        "JSON. NODE.JS"
+      ],
       "experience": "3 años",
       "avatar": null
     },
@@ -41,7 +50,11 @@
       "name": "Luis Martínez Torres",
       "type": "candidate",
       "title": "Backend Developer",
-      "skills": ["Node.js", "Express", "MongoDB"],
+      "skills": [
+        "Node.js",
+        "Express",
+        "MongoDB"
+      ],
       "experience": "4 años",
       "location": "Valencia",
       "avatar": null
@@ -53,7 +66,11 @@
       "name": "María López Sánchez",
       "type": "candidate",
       "title": "UX/UI Designer",
-      "skills": ["Figma", "Adobe XD", "User Research"],
+      "skills": [
+        "Figma",
+        "Adobe XD",
+        "User Research"
+      ],
       "experience": "3 años",
       "location": "Sevilla",
       "avatar": null
@@ -65,7 +82,11 @@
       "name": "José Fernández Ruiz",
       "type": "candidate",
       "title": "Data Analyst",
-      "skills": ["Python", "SQL", "Power BI"],
+      "skills": [
+        "Python",
+        "SQL",
+        "Power BI"
+      ],
       "experience": "5 años",
       "location": "Madrid",
       "avatar": null
@@ -77,7 +98,11 @@
       "name": "Sofía Gómez Herrera",
       "type": "candidate",
       "title": "Mobile Developer",
-      "skills": ["Flutter", "Dart", "Firebase"],
+      "skills": [
+        "Flutter",
+        "Dart",
+        "Firebase"
+      ],
       "experience": "2 años",
       "location": "Bogotá",
       "avatar": null
@@ -89,7 +114,11 @@
       "name": "Andrés Castillo Mora",
       "type": "candidate",
       "title": "DevOps Engineer",
-      "skills": ["Docker", "Kubernetes", "AWS"],
+      "skills": [
+        "Docker",
+        "Kubernetes",
+        "AWS"
+      ],
       "experience": "6 años",
       "location": "Medellín",
       "avatar": null
@@ -101,7 +130,11 @@
       "name": "Camila Torres Mejía",
       "type": "candidate",
       "title": "Full Stack Developer",
-      "skills": ["JavaScript", "Vue", "Node.js"],
+      "skills": [
+        "JavaScript",
+        "Vue",
+        "Node.js"
+      ],
       "experience": "3 años",
       "location": "Cali",
       "avatar": null
@@ -113,7 +146,11 @@
       "name": "Diego Ramírez Salazar",
       "type": "candidate",
       "title": "QA Engineer",
-      "skills": ["Selenium", "Jest", "Cypress"],
+      "skills": [
+        "Selenium",
+        "Jest",
+        "Cypress"
+      ],
       "experience": "4 años",
       "location": "Lima",
       "avatar": null
@@ -125,7 +162,11 @@
       "name": "Laura Hernández Díaz",
       "type": "candidate",
       "title": "Product Manager",
-      "skills": ["Scrum", "Jira", "Product Strategy"],
+      "skills": [
+        "Scrum",
+        "Jira",
+        "Product Strategy"
+      ],
       "experience": "7 años",
       "location": "Madrid",
       "avatar": null
@@ -141,7 +182,11 @@
       "location": "Barcelona (Híbrido)",
       "type": "Tiempo completo",
       "salary": "45.000 - 55.000 €",
-      "skills": ["React", "TypeScript", "JavaScript"],
+      "skills": [
+        "React",
+        "TypeScript",
+        "JavaScript"
+      ],
       "postedAt": "2025-02-01T10:00:00.000Z"
     },
     {
@@ -153,7 +198,11 @@
       "location": "Remoto",
       "type": "Tiempo completo",
       "salary": "35.000 - 42.000 €",
-      "skills": ["Figma", "UX", "UI Design"],
+      "skills": [
+        "Figma",
+        "UX",
+        "UI Design"
+      ],
       "postedAt": "2025-02-02T09:00:00.000Z"
     },
     {
@@ -165,7 +214,12 @@
       "location": "Madrid (Híbrido)",
       "type": "Tiempo completo",
       "salary": "42.000 - 52.000 €",
-      "skills": ["Node.js", "Express", "PostgreSQL", "MongoDB"],
+      "skills": [
+        "Node.js",
+        "Express",
+        "PostgreSQL",
+        "MongoDB"
+      ],
       "postedAt": "2025-02-03T10:30:00.000Z"
     },
     {
@@ -177,7 +231,12 @@
       "location": "Barcelona (Híbrido)",
       "type": "Tiempo completo",
       "salary": "40.000 - 50.000 €",
-      "skills": ["React", "Node.js", "JavaScript", "SQL"],
+      "skills": [
+        "React",
+        "Node.js",
+        "JavaScript",
+        "SQL"
+      ],
       "postedAt": "2025-02-03T15:00:00.000Z"
     },
     {
@@ -189,7 +248,11 @@
       "location": "Valencia (Híbrido)",
       "type": "Tiempo completo",
       "salary": "35.000 - 45.000 €",
-      "skills": ["Cypress", "Jest", "Selenium"],
+      "skills": [
+        "Cypress",
+        "Jest",
+        "Selenium"
+      ],
       "postedAt": "2025-02-04T13:45:00.000Z"
     }
   ],
@@ -199,6 +262,12 @@
       "candidateId": 1,
       "createdAt": "2026-02-04T05:24:02.040Z",
       "id": "1"
+    },
+    {
+      "companyId": "2",
+      "candidateId": 3,
+      "createdAt": "2026-02-06T20:06:07.658Z",
+      "id": "WeeK6JN"
     }
   ],
   "reservations": [
@@ -207,6 +276,12 @@
       "candidateId": 1,
       "createdAt": "2026-02-04T05:24:00.160Z",
       "id": "1"
+    },
+    {
+      "companyId": "2",
+      "candidateId": 1,
+      "createdAt": "2026-02-06T20:06:04.890Z",
+      "id": "DObYJ4_"
     }
   ],
   "applications": [
