@@ -199,24 +199,6 @@
       "candidateId": 1,
       "createdAt": "2026-02-04T05:24:02.040Z",
       "id": "1"
-    },
-    {
-      "companyId": "2",
-      "candidateId": 1,
-      "createdAt": "2026-02-05T22:40:55.460Z",
-      "id": "w4qynU_"
-    },
-    {
-      "id": "c8f1",
-      "companyId": "2",
-      "candidateId": 5,
-      "createdAt": "2026-02-06T13:04:23.516Z"
-    },
-    {
-      "id": "cbec",
-      "companyId": "2",
-      "candidateId": 9,
-      "createdAt": "2026-02-06T13:04:35.716Z"
     }
   ],
   "reservations": [
@@ -225,24 +207,6 @@
       "candidateId": 1,
       "createdAt": "2026-02-04T05:24:00.160Z",
       "id": "1"
-    },
-    {
-      "id": "6398",
-      "companyId": "2",
-      "candidateId": 1,
-      "createdAt": "2026-02-06T12:50:15.584Z"
-    },
-    {
-      "id": "0b08",
-      "companyId": "2",
-      "candidateId": 8,
-      "createdAt": "2026-02-06T15:44:28.136Z"
-    },
-    {
-      "id": "a664",
-      "companyId": "2",
-      "candidateId": 5,
-      "createdAt": "2026-02-06T15:48:08.814Z"
     }
   ],
   "applications": [

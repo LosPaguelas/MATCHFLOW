@@ -457,12 +457,9 @@ async function loadMyJobs() {
     const myJobs = jobOffers.filter((j) => j.companyId === user.id);
     document.getElementById("jobCount").textContent =
       `${myJobs.length} oferta(s) publicada(s)`;
-    console.log(jobOffers);
     const container = document.getElementById("myJobsList");
 
     jobOffers.forEach((jobOffer) => {
-      console.log(jobOffer);
-
       const html = `
       <div class="card job-card" style="display: flex; justify-content: space-between; align-items: flex-start;">
         <div>
@@ -645,7 +642,6 @@ window.matchCandidate = async function (candidateId) {
 window.reserveCandidate = async function (candidateId) {
   try {
     const existing = await api.get("reservations");
-    console.log(existing);
 
     if (
       existing.some(
@@ -704,8 +700,7 @@ async function loadCompanyMatches() {
   const myMatches = matches.filter((m) => m.companyId === user.id);
   const users = await api.get("users");
   const container = document.getElementById("companyMatchesList");
-  console.log(matches);
-  console.log(users);
+
   try {
     const matches = await api.get("matches");
     const users = await api.get("users");
@@ -715,10 +710,11 @@ async function loadCompanyMatches() {
 
     container.innerHTML = ""; // clear first
 
-    const myMatches = matches.filter((m) => m.companyId === user.id);
-
-    console.log(users);
-    console.log(matches);
+    const myMatches = matches.filter(
+      (m) => m.companyId,
+      // === user.id
+    );
+    console.log(myMatches);
 
     if (myMatches.length === 0) {
       container.innerHTML =
@@ -751,6 +747,7 @@ async function loadCompanyMatches() {
   } catch (err) {
     console.error(err);
   }
+  // container.innerHTML = "";
 }
 
 // async function loadCompanyReservations() {
@@ -785,28 +782,24 @@ async function loadCompanyMatches() {
 // }
 
 async function loadCompanyReservations() {
-  const reservations = await api.get("reservations");
-  const myReservations = reservations.filter((r) => r.companyId === user.id);
-  const users = await api.get("users");
   const container = document.getElementById("companyReservationsList");
   try {
+    const users = await api.get("users");
     const reservations = await api.get("reservations");
-    const container = document.getElementById("companyReservationsList");
     if (!container) return;
 
-    container.innerHTML = ""; // clear first
+    // const myReservations = reservations.filter((r) => r.companyId);
+    // === user.id
+    // console.log(myReservations);
 
-    const myReservations = reservations.filter((r) => r.companyId === user.id);
-
+    // if (myReservations.length === 0) {
+    //   container.innerHTML =
+    //     '<div class="empty-state"><p>No has reservado candidatos</p></div>';
+    //   return;
+    // }
     console.log(reservations);
 
-    if (myReservations.length === 0) {
-      container.innerHTML =
-        '<div class="empty-state"><p>No has reservado candidatos</p></div>';
-      return;
-    }
-
-    myReservations.forEach((reservation) => {
+    reservations.forEach((reservation) => {
       const html = `
         <div class="user-card">
           <div class="user-avatar">
