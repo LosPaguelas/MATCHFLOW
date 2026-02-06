@@ -37,21 +37,27 @@ MatchFlow moves to Phase 2, focusing on inherited code stabilization and monetiz
 
 Core concept: Company plan controls what candidates they can see and how they can filter them.
 
-- Free Company
+#### Free Company
+
 - Default MatchFlow visibility rules
 - Limited filtering (basic filters only)
 - Cannot bypass reservation blocking
-- Business Company
+
+#### Business Company
+
 - Enhanced candidate visibility (group decision)
 - Advanced filters (e.g., skill-based filters)
 - Potential higher search/match limits
-- Enterprise Company
+
+#### Enterprise Company
+
 - Can see all candidates, including reserved ones
 - Full filtering freedom (skills, attributes, custom filters)
 - Still cannot reserve if candidate reached reservation limit
 - Cross-Plan Global Business Rules (Hard System Constraints)
 
-- These rules override all plans:
+#### These rules override all plans:
+
 - Reservation Blocking Rule
 - Even Enterprise companies cannot bypass reservation limits
 - Single Active Plan Rule

@@ -4,7 +4,7 @@
       "id": "1",
       "email": "candidato@matchflow.com",
       "password": "candidato123",
-      "name": "Carlos García",
+      "name": "Carlos García Velez",
       "type": "candidate",
       "title": "Desarrollador Full Stack",
       "skills": [
@@ -42,6 +42,182 @@
       ],
       "experience": "3 años",
       "avatar": null
+    },
+    {
+      "id": "3",
+      "email": "luis.backend@matchflow.com",
+      "password": "luis123",
+      "name": "Luis Martínez Torres",
+      "type": "candidate",
+      "title": "Backend Developer",
+      "skills": [
+        "Node.js",
+        "Express",
+        "MongoDB"
+      ],
+      "experience": "4 años",
+      "location": "Valencia",
+      "avatar": null
+    },
+    {
+      "id": "4",
+      "email": "maria.ux@matchflow.com",
+      "password": "maria123",
+      "name": "María López Sánchez",
+      "type": "candidate",
+      "title": "UX/UI Designer",
+      "skills": [
+        "Figma",
+        "Adobe XD",
+        "User Research"
+      ],
+      "experience": "3 años",
+      "location": "Sevilla",
+      "avatar": null
+    },
+    {
+      "id": "5",
+      "email": "jose.data@matchflow.com",
+      "password": "jose123",
+      "name": "José Fernández Ruiz",
+      "type": "candidate",
+      "title": "Data Analyst",
+      "skills": [
+        "Python",
+        "SQL",
+        "Power BI"
+      ],
+      "experience": "5 años",
+      "location": "Madrid",
+      "avatar": null
+    },
+    {
+      "id": "6",
+      "email": "sofia.mobile@matchflow.com",
+      "password": "sofia123",
+      "name": "Sofía Gómez Herrera",
+      "type": "candidate",
+      "title": "Mobile Developer",
+      "skills": [
+        "Flutter",
+        "Dart",
+        "Firebase"
+      ],
+      "experience": "2 años",
+      "location": "Bogotá",
+      "avatar": null
+    },
+    {
+      "id": "7",
+      "email": "andres.devops@matchflow.com",
+      "password": "andres123",
+      "name": "Andrés Castillo Mora",
+      "type": "candidate",
+      "title": "DevOps Engineer",
+      "skills": [
+        "Docker",
+        "Kubernetes",
+        "AWS"
+      ],
+      "experience": "6 años",
+      "location": "Medellín",
+      "avatar": null
+    },
+    {
+      "id": "8",
+      "email": "camila.fullstack@matchflow.com",
+      "password": "camila123",
+      "name": "Camila Torres Mejía",
+      "type": "candidate",
+      "title": "Full Stack Developer",
+      "skills": [
+        "JavaScript",
+        "Vue",
+        "Node.js"
+      ],
+      "experience": "3 años",
+      "location": "Cali",
+      "avatar": null
+    },
+    {
+      "id": "9",
+      "email": "diego.qa@matchflow.com",
+      "password": "diego123",
+      "name": "Diego Ramírez Salazar",
+      "type": "candidate",
+      "title": "QA Engineer",
+      "skills": [
+        "Selenium",
+        "Jest",
+        "Cypress"
+      ],
+      "experience": "4 años",
+      "location": "Lima",
+      "avatar": null
+    },
+    {
+      "id": "10",
+      "email": "laura.pm@matchflow.com",
+      "password": "laura123",
+      "name": "Laura Hernández Díaz",
+      "type": "candidate",
+      "title": "Product Manager",
+      "skills": [
+        "Scrum",
+        "Jira",
+        "Product Strategy"
+      ],
+      "experience": "7 años",
+      "location": "Madrid",
+      "avatar": null
+    },
+    {
+      "id": "11",
+      "email": "juan.ml@matchflow.com",
+      "password": "juan123",
+      "name": "Juan Pérez Molina",
+      "type": "candidate",
+      "title": "Machine Learning Engineer",
+      "skills": [
+        "Python",
+        "TensorFlow",
+        "Pandas"
+      ],
+      "experience": "3 años",
+      "location": "Buenos Aires",
+      "avatar": null
+    },
+    {
+      "id": "12",
+      "email": "natalia.cyber@matchflow.com",
+      "password": "natalia123",
+      "name": "Natalia Vargas León",
+      "type": "candidate",
+      "title": "Cybersecurity Analyst",
+      "skills": [
+        "Linux",
+        "Network Security",
+        "Ethical Hacking"
+      ],
+      "experience": "5 años",
+      "location": "Santiago",
+      "avatar": null
+    },
+    {
+      "id": "13",
+      "email": "ricardo.game@matchflow.com",
+      "password": "ricardo123",
+      "name": "Ricardo Silva Núñez",
+      "type": "candidate",
+      "title": "Game Developer",
+      "skills": [
+        "Unity",
+        "C#",
+        "3D Modeling"
+      ],
+      "experience": "2 años",
+      "location": "Ciudad de México",
+      "avatar": null
     }
   ],
   "jobs": [
@@ -78,18 +254,54 @@
       "postedAt": "2025-02-02T09:00:00.000Z"
     },
     {
-      "id": "43fa",
-      "companyId": "2",
+      "id": "3",
+      "companyId": 2,
       "companyName": "TurtleCorp S.A.S",
-      "title": "asdad",
-      "description": "asdsada",
-      "location": "asdsad",
-      "type": "asdasd",
-      "salary": "asdasdas",
+      "title": "Backend Developer Node.js",
+      "description": "Desarrollador backend para APIs REST y microservicios. Experiencia con bases de datos relacionales y NoSQL.",
+      "location": "Madrid (Híbrido)",
+      "type": "Tiempo completo",
+      "salary": "42.000 - 52.000 €",
       "skills": [
-        "asdasd"
+        "Node.js",
+        "Express",
+        "PostgreSQL",
+        "MongoDB"
       ],
-      "postedAt": "2026-02-04T19:21:06.835Z"
+      "postedAt": "2025-02-03T10:30:00.000Z"
+    },
+    {
+      "id": "4",
+      "companyId": 2,
+      "companyName": "TurtleCorp S.A.S",
+      "title": "Full Stack Developer",
+      "description": "Buscamos perfil full stack con experiencia en React y Node.js para desarrollo de plataformas internas.",
+      "location": "Barcelona (Híbrido)",
+      "type": "Tiempo completo",
+      "salary": "40.000 - 50.000 €",
+      "skills": [
+        "React",
+        "Node.js",
+        "JavaScript",
+        "SQL"
+      ],
+      "postedAt": "2025-02-03T15:00:00.000Z"
+    },
+    {
+      "id": "6",
+      "companyId": 2,
+      "companyName": "TurtleCorp S.A.S",
+      "title": "QA Automation Engineer",
+      "description": "Automatización de pruebas end-to-end y unitarias en aplicaciones web.",
+      "location": "Valencia (Híbrido)",
+      "type": "Tiempo completo",
+      "salary": "35.000 - 45.000 €",
+      "skills": [
+        "Cypress",
+        "Jest",
+        "Selenium"
+      ],
+      "postedAt": "2025-02-04T13:45:00.000Z"
     }
   ],
   "matches": [
@@ -98,6 +310,12 @@
       "candidateId": 1,
       "createdAt": "2026-02-04T05:24:02.040Z",
       "id": "1"
+    },
+    {
+      "companyId": "2",
+      "candidateId": 1,
+      "createdAt": "2026-02-05T22:40:55.460Z",
+      "id": "w4qynU_"
     }
   ],
   "reservations": [
@@ -122,13 +340,6 @@
       "candidateId": "1",
       "status": "pending",
       "createdAt": "2026-02-04T19:36:06.074Z"
-    },
-    {
-      "id": "dd38",
-      "jobId": "43fa",
-      "candidateId": "1",
-      "status": "pending",
-      "createdAt": "2026-02-04T19:36:45.233Z"
     }
   ]
 }
