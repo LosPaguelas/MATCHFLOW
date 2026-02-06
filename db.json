@@ -25,7 +25,8 @@
       "type": "company",
       "industry": "Tecnología",
       "location": "Barcelona",
-      "avatar": null
+      "avatar": null,
+      "plan": "null"
     },
     {
       "id": "b203",
@@ -34,7 +35,7 @@
       "location": "Medellin",
       "name": "Briam Vanegas",
       "type": "candidate",
-      "plan": "free",
+      "plan": "plata",
       "title": "Desarrollador FullStack",
       "skills": [
         "JavaScript",
