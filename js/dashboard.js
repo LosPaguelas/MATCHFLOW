@@ -629,7 +629,7 @@ window.matchCandidate = async function (candidateId) {
 //           </div>
 //         </div>
 //       ` : ''
-//     }).filter(Boolean).join('');
+//     }).filter(Boolean).join('')
 //   } catch (err) {
 //     console.error(err)
 //   }
